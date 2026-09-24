@@ -454,6 +454,382 @@ const SITES = [
   {id:'bestchange',  name:'Bestchange',      url:'https://bestchange.com',  sats:3,  interval:1*3600,  minWithdraw:1000, note:'Cada 1h · 10h/día = ~30 sats'},
   {id:'adbtc',       name:'Adbtc.top',       url:'https://adbtc.top',       sats:3,  interval:4*3600,  minWithdraw:250,  note:'Cada 4h · 6 veces/día = ~18 sats'},
   {id:'rewardjoy',   name:'Rewardjoy',       url:'https://rewardjoy.com',   sats:3,  interval:4*3600,  minWithdraw:5000, note:'Cada 4h · PTC y Bitcotask'},
+  {id:'yescoiner',   name:'Yesc    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    padding:10px;
+    display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;
+    position:relative;
+  }
+  .card.waiting{border-left:4px solid var(--yellow);}
+  .card.ready{border-left:4px solid var(--green);box-shadow:0 0 0 2px rgba(22,163,74,.15);}
+  .card.idle{border-left:4px solid var(--border);}
+  .card.cycle{border-left:4px solid var(--purple);}
+  .card.missed{border-left:4px solid var(--red);box-shadow:0 0 0 2px rgba(220,38,38,.15);}
+  .card.withdraw{border-left:4px solid var(--orange);background:#fff7ed;}
+
+  .card-top{
+    display:flex;justify-content:space-between;align-items:center;
+    width:100%;gap:6px;flex-wrap:wrap;
+  }
+  .pos-box{
+    display:flex;align-items:center;gap:4px;
+    background:#fff;border:1px solid var(--border);border-radius:6px;
+    padding:4px 6px;font-size:11px;
+  }
+  .pos-box label{color:var(--muted);font-weight:600;}
+  .pos-input{
+    width:44px;padding:4px 6px;border:1px solid var(--border);
+    border-radius:4px;text-align:center;font-weight:700;font-size:12px;
+    font-family:monospace;background:#fff;color:var(--accent);
+  }
+  .pos-input:focus{outline:2px solid var(--accent);}
+
+  .top-actions{display:flex;gap:4px;flex-wrap:wrap;}
+
+  .btn-withdraw{
+    padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;
+    border:1px solid var(--border);background:#fff;color:var(--muted);
+    cursor:pointer;transition:.15s;
+  }
+  .btn-withdraw:hover{filter:brightness(.95);}
+  .btn-withdraw.active{
+    background:var(--orange);color:#fff;border-color:var(--orange);
+    box-shadow:0 0 0 2px rgba(234,88,12,.2);
+  }
+
+  .btn-delete{
+    padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;
+    border:1px solid var(--red);background:#fff;color:var(--red);
+    cursor:pointer;transition:.15s;
+  }
+  .btn-delete:hover{background:#fee2e2;}
+
+  .sats-editor{
+    display:flex;align-items:center;gap:6px;
+    background:#fffbeb;border:2px solid var(--gold);border-radius:8px;
+    padding:6px 10px;margin-top:6px;
+  }
+  .sats-editor label{font-size:11px;font-weight:800;color:#78350f;text-transform:uppercase;}
+  .sats-input{
+    width:90px;padding:6px 8px;border:1px solid var(--gold);
+    border-radius:6px;text-align:right;font-weight:800;font-size:15px;
+    font-family:monospace;background:#fff;color:#78350f;
+  }
+  .sats-input:focus{outline:2px solid var(--gold);}
+  .sats-editor .unit{font-size:12px;font-weight:700;color:#78350f;}
+
+  .info{flex:1;min-width:200px;}
+  .name{
+    font-weight:700;font-size:14px;color:var(--accent);
+    text-decoration:none;cursor:pointer;display:inline-block;
+    word-break:break-word;
+  }
+  .name:hover{text-decoration:underline;}
+  .meta{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5;}
+  .meta b{color:var(--txt);}
+
+  .timer{
+    font-family:monospace;font-size:13px;font-weight:700;
+    padding:4px 8px;border-radius:6px;background:var(--card2);
+    min-width:80px;text-align:center;color:var(--muted);
+  }
+  .timer.running{color:var(--green);background:#dcfce7;}
+  .timer.ready{color:var(--green);background:#dcfce7;}
+  .timer.cycle{color:var(--purple);background:#f3e8ff;}
+  .timer.missed{color:var(--red);background:#fee2e2;}
+
+  .actions{display:flex;gap:5px;flex-wrap:wrap;width:100%;align-items:center;}
+  .actions .btn{flex:1;min-width:90px;padding:8px 6px;font-size:11px;}
+
+  .badge-wait{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:8px;
+    background:#fef9c3;
+    color:var(--yellow);
+    font-weight:700;
+    font-size:11px;
+    text-align:center;
+    flex:1;
+    min-width:90px;
+    border:1px solid #fde047;
+    user-select:none;
+    pointer-events:none;
+    cursor:default;
+    font-family:monospace;
+  }
+  .badge-wait.cycle{
+    background:#f3e8ff;
+    color:var(--purple);
+    border-color:#d8b4fe;
+  }
+
+  .cycle-box{
+    width:100%;background:var(--card2);border:1px dashed var(--purple);
+    border-radius:8px;padding:8px;margin-top:6px;font-size:11px;
+  }
+  .cycle-box.active{border-style:solid;background:#f3e8ff;}
+  .cycle-box.missed{border-color:var(--red);background:#fee2e2;}
+  .cycle-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
+  .cycle-row:last-child{margin-bottom:0;}
+  .cycle-label{font-weight:700;color:var(--purple);min-width:60px;}
+  .cycle-input{
+    background:#fff;border:1px solid var(--border);color:var(--txt);
+    padding:5px 6px;border-radius:5px;font-size:12px;width:65px;
+  }
+  .cycle-select{
+    background:#fff;border:1px solid var(--border);color:var(--txt);
+    padding:5px 6px;border-radius:5px;font-size:12px;
+  }
+  .cycle-status{
+    font-family:monospace;font-size:11px;font-weight:700;
+    padding:3px 7px;border-radius:5px;background:#fff;border:1px solid var(--border);
+  }
+  .cycle-status.waiting{color:var(--yellow);}
+  .cycle-status.ready{color:var(--green);}
+  .cycle-status.expired{color:var(--red);}
+
+  .notes-preview{
+    font-size:11px;color:var(--muted);background:#f9fafb;
+    border-left:3px solid var(--accent);padding:4px 8px;margin-top:4px;
+    border-radius:4px;white-space:pre-wrap;word-break:break-word;
+    max-height:60px;overflow:hidden;
+  }
+  .notes-preview.empty{font-style:italic;color:#cbd5e1;}
+
+  .missed-badge{
+    display:inline-block;background:var(--red);color:#fff;font-weight:800;
+    font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;
+  }
+  .missed-badge.zero{background:var(--card2);color:var(--muted);}
+
+  .withdraw-badge{
+    display:inline-block;background:var(--orange);color:#fff;font-weight:800;
+    font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;
+  }
+
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:14px;}
+  .stat-box{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    padding:10px;text-align:center;
+  }
+  .stat-box .val{font-size:20px;font-weight:800;color:var(--accent);}
+  .stat-box .lbl{font-size:11px;color:var(--muted);margin-top:3px;}
+  .stat-box.red .val{color:var(--red);}
+  .stat-box.gold .val{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px;}
+  th,td{padding:6px 5px;text-align:left;border-bottom:1px solid var(--border);}
+  th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;}
+  tr:hover td{background:var(--card);}
+  td.num{text-align:right;font-family:monospace;}
+  .good{color:var(--green);}
+  .bad{color:var(--red);}
+  .warn{color:var(--yellow);}
+  .purple{color:var(--purple);}
+  .orange{color:var(--orange);}
+  .gold{color:var(--gold);}
+
+  .hidden{display:none;}
+  .toast{
+    position:fixed;bottom:16px;right:16px;left:16px;background:var(--accent);color:#fff;
+    padding:12px 16px;border-radius:8px;font-size:13px;font-weight:600;
+    opacity:0;transition:.3s;pointer-events:none;z-index:100;text-align:center;
+  }
+  .toast.show{opacity:1;}
+  .toast.red{background:var(--red);}
+  .toast.green{background:var(--green);}
+  .toast.orange{background:var(--orange);}
+  .toast.gold{background:var(--gold);}
+  .bar{height:5px;background:var(--card2);border-radius:3px;overflow:hidden;margin-top:5px;}
+  .bar-fill{height:100%;background:var(--green);transition:width .3s;}
+
+  .modal-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;
+    align-items:center;justify-content:center;z-index:200;padding:16px;
+  }
+  .modal{
+    background:#fff;border:1px solid var(--border);border-radius:12px;
+    padding:16px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;
+  }
+  .modal h3{margin-top:0;color:var(--purple);}
+  .modal .cycle-row{margin-bottom:10px;}
+  .modal .cycle-input{width:70px;padding:8px;font-size:14px;text-align:center;}
+  .modal .cycle-select{padding:8px;font-size:14px;}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;}
+  .modal-hint{font-size:11px;color:var(--muted);margin:0 0 12px;line-height:1.5;}
+
+  .field-row{margin-bottom:10px;}
+  .field-row label{
+    display:block;font-size:11px;font-weight:700;color:var(--muted);
+    text-transform:uppercase;margin-bottom:4px;
+  }
+  .field-row input, .field-row textarea, .field-row select{
+    width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;
+    font-size:14px;font-family:inherit;background:#fff;color:var(--txt);
+  }
+  .field-row textarea{
+    min-height:80px;resize:vertical;font-family:inherit;
+  }
+  .field-row input:focus, .field-row textarea:focus{
+    outline:2px solid var(--accent);
+  }
+
+  .legend{
+    background:var(--card);border:1px solid var(--border);border-radius:8px;
+    padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6;
+  }
+  .legend b{color:var(--txt);}
+
+  .deleted-section{
+    background:#fef2f2;border:1px solid #fecaca;border-radius:8px;
+    padding:10px;margin-top:12px;font-size:11px;
+  }
+  .deleted-section h3{margin:0 0 6px;color:var(--red);font-size:12px;}
+  .deleted-item{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#fff;border:1px solid #fecaca;border-radius:6px;
+    padding:4px 8px;margin:3px;font-size:11px;
+  }
+  .deleted-item button{
+    background:var(--green);color:#fff;border:none;border-radius:4px;
+    padding:2px 6px;font-size:10px;cursor:pointer;font-weight:700;
+  }
+
+  .checkpoint{
+    background:#fff;border:1px solid var(--border);border-radius:8px;
+    padding:10px;margin-bottom:6px;font-size:12px;
+    display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .checkpoint .cp-info{flex:1;min-width:180px;}
+  .checkpoint .cp-date{font-weight:700;color:var(--accent);font-size:11px;}
+  .checkpoint .cp-total{font-family:monospace;font-weight:800;color:var(--gold);font-size:14px;}
+  .checkpoint .cp-detail{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.4;}
+  .checkpoint .cp-actions{display:flex;gap:4px;}
+
+  .notes-general-box{
+    background:#fffbeb;border:2px solid var(--gold);border-radius:10px;
+    padding:10px;margin-bottom:12px;
+  }
+  .notes-general-box h3{margin:0 0 6px;color:#78350f;font-size:12px;}
+  .notes-general-box textarea{
+    width:100%;min-height:80px;padding:8px;border:1px solid var(--gold);
+    border-radius:6px;font-size:13px;font-family:inherit;background:#fff;
+    color:#78350f;resize:vertical;
+  }
+  .notes-general-box textarea:focus{outline:2px solid var(--gold);}
+
+  .loading-overlay{
+    position:fixed;inset:0;background:rgba(255,255,255,.9);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    z-index:500;font-size:14px;color:var(--accent);font-weight:700;
+  }
+  .loading-overlay .spinner{
+    width:40px;height:40px;border:4px solid #dbeafe;border-top-color:var(--accent);
+    border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  @media (max-width:480px){
+    body{padding:8px;font-size:13px;}
+    h1{font-size:16px;}
+    .tab{padding:8px 11px;font-size:12px;}
+    .name{font-size:13px;}
+    .timer{font-size:12px;min-width:70px;}
+    .actions .btn{min-width:75px;font-size:10px;padding:7px 4px;}
+    .badge-wait{min-width:75px;font-size:10px;padding:7px 4px;}
+    .total-panel .total-value{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div>Sincronizando con la nube...</div>
+</div>
+
+<div class="topbar">
+  <h1>⛏️ Panel de Faucets</h1>
+  <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+    <span class="sync-status" id="syncStatus">☁️ Cargando...</span>
+    <a class="ext-link" href="https://mytexto.netlify.app" target="_blank" rel="noopener">🔗 mytexto</a>
+  </div>
+</div>
+
+<div class="total-panel">
+  <div>
+    <div class="total-label">💰 Total de satoshis</div>
+    <div class="total-value" id="totalSats">0 <small>sats</small></div>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <button class="btn btn-gold" onclick="saveCheckpoint()">📌 Guardar punto de control</button>
+  </div>
+</div>
+
+<div class="notes-general-box">
+  <h3>📝 Apuntes generales</h3>
+  <textarea id="generalNotes" placeholder="Escribe aquí tus apuntes generales..." onchange="saveGeneralNotes(this.value)"></textarea>
+  <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;">
+    <button class="btn btn-xs btn-red" onclick="clearGeneralNotes()">🗑️ Borrar apuntes generales</button>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="panel">📋 Panel</div>
+  <div class="tab" data-tab="stats">📊 Estadísticas</div>
+  <div class="tab" data-tab="cycles">🔄 Ciclos</div>
+  <div class="tab" data-tab="checkpoints">📌 Puntos de control</div>
+</div>
+
+<div id="tab-panel">
+  <div class="toolbar">
+    <button class="btn btn-primary" onclick="exportJSON()">💾 Descargar JSON</button>
+    <button class="btn" onclick="document.getElementById('fileInput').click()">📂 Cargar JSON</button>
+    <input type="file" id="fileInput" accept=".json" class="hidden" onchange="importJSON(event)">
+    <button class="btn btn-green" onclick="openAddSiteModal()">➕ Agregar faucet</button>
+    <button class="btn btn-orange" onclick="clearAllTimers()">🧹 Limpiar timers</button>
+    <button class="btn btn-red" onclick="resetAll()">🗑️ Reiniciar TODO</button>
+    <button class="btn btn-cyan" onclick="forceSync()">☁️ Sincronizar</button>
+  </div>
+
+  <div class="legend">
+    <b>💰 Sats editables</b>: escribe los sats que tienes en cada faucet. Se guarda solo en la nube.<br>
+    <b>Timer esquina</b>: tiempo transcurrido. <b>Badge abajo</b>: tiempo faltante.<br>
+    <b>📝 Apuntes</b>: notas por faucet. <b>#</b>: cambiar posición. <b>🗑️</b>: eliminar.
+  </div>
+
+  <div id="groupsContainer"></div>
+
+  <div id="deletedSection"></div>
+</div>
+
+<div id="tab-stats" class="hidden"><div id="statsContent"></div></div>
+<div id="tab-cycles" class="hidden"><div id="cyclesContent"></div></div>
+<div id="tab-checkpoints" class="hidden"><div id="checkpointsContent"></div></div>
+
+<div class="toast" id="toast"></div>
+<div id="modalContainer"></div>
+
+<script>
+/* ============================================================
+   SITIOS
+   ============================================================ */
+const SITES = [
+  {id:'cryptoyieldy', name:'Cryptoyieldy.com', url:'https://cryptoyieldy.com', sats:40, interval:24*3600, minWithdraw:50,  note:'10 monedas = 1 satoshi · PTC external'},
+  {id:'beegobox',    name:'Beegobox',        url:'https://beegobox.com',    sats:25, interval:24*3600, minWithdraw:100, note:'Offerwall + faucet'},
+  {id:'ltcminer',    name:'Ltcminer.com',    url:'https://ltcminer.com',    sats:17, interval:24*3600, minWithdraw:0,   note:'Retiro directo'},
+  {id:'freelitecoin',name:'Freelitecoin.online', url:'https://freelitecoin.online', sats:9, interval:24*3600, minWithdraw:0, note:'Minería · retiro inmediato'},
+  {id:'1xfaucet',    name:'1xfaucet.com',    url:'https://1xfaucet.com',    sats:7,  interval:24*3600, minWithdraw:10,  note:'Offerwall · 80 monedas = 1 satoshi'},
+  {id:'earnviva',    name:'Earnviv.com',     url:'https://earnviv.com',     sats:6,  interval:24*3600, minWithdraw:1000,note:'PTC + wheel 5x/día · 1 moneda = 1 sat'},
+  {id:'bitcoearn',   name:'Bitcoearn.com',   url:'https://bitcoearn.com',   sats:6,  interval:24*3600, minWithdraw:50,  note:'PTC · 10 monedas = 1 sat'},
+  {id:'gifttask',    name:'Gifttask.com',    url:'https://gifttask.com',    sats:4,  interval:24*3600, minWithdraw:50,  note:'PTC · 100 monedas = 1 sat'},
+  {id:'coinli',      name:'Coinli.net',      url:'https://coinli.net',      sats:3,  interval:24*3600, minWithdraw:10,  note:'Faucet + bonus'},
+  {id:'tapcoin',     name:'Tap-coin.de',     url:'https://tap-coin.de',     sats:3,  interval:24*3600, minWithdraw:250, note:'Surf + Bitcotask · 1 sat = 8 monedas'},
+  {id:'dogezilla',   name:'Dogezilla.site',  url:'https://dogezilla.site',  sats:3,  interval:24*3600, minWithdraw:0,   note:'Offerwall · retiro inmediato FaucetPay'},
+  {id:'dogeminerpro',name:'Dogeminerpro.com',url:'https://dogeminerpro.com',sats:2,  interval:24*3600, minWithdraw:0,   note:'Retiro directo'},
+  {id:'bestchange',  name:'Bestchange',      url:'https://bestchange.com',  sats:3,  interval:1*3600,  minWithdraw:1000, note:'Cada 1h · 10h/día = ~30 sats'},
+  {id:'adbtc',       name:'Adbtc.top',       url:'https://adbtc.top',       sats:3,  interval:4*3600,  minWithdraw:250,  note:'Cada 4h · 6 veces/día = ~18 sats'},
+  {id:'rewardjoy',   name:'Rewardjoy',       url:'https://rewardjoy.com',   sats:3,  interval:4*3600,  minWithdraw:5000, note:'Cada 4h · PTC y Bitcotask'},
   {id:'yescoiner',   name:'Yescoiner',       url:'https://yescoiner.com',   sats:3,  interval:1*3600,  minWithdraw:250,  note:'Cada 1h · 5 veces/día = ~15 sats'},
   {id:'dominovamos', name:'Domino Vamos',    url:'https://dominovamos.com', sats:3,  interval:24*3600, minWithdraw:2000, note:'Cada 24h'},
   {id:'libertex',    name:'Libertex',        url:'https://libertex.com',    sats:0,  interval:2*3600,  minWithdraw:10000,note:'Cada 2h · monto no especificado'},
