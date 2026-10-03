@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Plataformas Win</title>
+<title>Panel de Faucets</title>
 <style>
   :root{
     --bg:#ffffff; --card:#f8f9fb; --card2:#eef1f6; --border:#d8dde6;
@@ -454,7 +454,7 @@
 </div>
 
 <div class="topbar">
-  <h1>⛏️ Plataforma Win</h1>
+  <h1>⛏️ Panel de Faucets</h1>
   <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
     <span class="sync-status" id="syncStatus" onclick="openCredentialsModal()" title="Click para cambiar Gist ID o Token">☁️ Cargando...</span>
     <a class="ext-link" href="https://mytexto.netlify.app" target="_blank" rel="noopener">🔗 mytexto</a>
@@ -1311,7 +1311,7 @@ function renderCard(site, position){
         </div>
         <div class="input-group meta">
           <label>🎯 Meta:</label>
-          <input type="number" class="sats-input" id="metaManual-${site.id}" value="${st.metaManual || 0}" step="1" onchange="onMetaChange('${site.id}', this.value)" onfocus="this.select()">
+          <input type="number" class="sats-input" id="metaManual-${site.id}" value="${st.metaManual || 0}" min="0" step="1" onchange="onMetaChange('${site.id}', this.value)" onfocus="this.select()">
           <span class="unit">sats</span>
         </div>
       </div>
@@ -1427,7 +1427,7 @@ function onSatsChange(id, value){
 function onMetaChange(id, value){
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
   const st = state.sites[id];
-  st.metaManual = parseInt(value) || 0);
+  st.metaManual = Math.max(0, parseInt(value) || 0);
   updateSatsBackupForSite(id);
   saveState();
   updateTotalDisplay();
