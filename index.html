@@ -1427,7 +1427,7 @@ function onSatsChange(id, value){
 function onMetaChange(id, value){
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
   const st = state.sites[id];
-  st.metaManual = Math.max(0, parseInt(value) || 0);
+  st.metaManual = parseInt(value) || 0);
   updateSatsBackupForSite(id);
   saveState();
   updateTotalDisplay();
