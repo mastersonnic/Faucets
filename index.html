@@ -1311,7 +1311,7 @@ function renderCard(site, position){
         </div>
         <div class="input-group meta">
           <label>🎯 Meta:</label>
-          <input type="number" class="sats-input" id="metaManual-${site.id}" value="${st.metaManual || 0}" min="0" step="1" onchange="onMetaChange('${site.id}', this.value)" onfocus="this.select()">
+          <input type="number" class="sats-input" id="metaManual-${site.id}" value="${st.metaManual || 0}" step="1" onchange="onMetaChange('${site.id}', this.value)" onfocus="this.select()">
           <span class="unit">sats</span>
         </div>
       </div>
