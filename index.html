@@ -17,24 +17,13 @@
     background:var(--bg); color:var(--txt); padding:10px; font-size:14px;
   }
 
-  .topbar{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-bottom:10px;flex-wrap:wrap;gap:8px;
-  }
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
   h1{font-size:18px;margin:0;color:var(--accent);}
-  .ext-link{
-    font-size:12px;font-weight:700;color:var(--accent);
-    text-decoration:none;padding:6px 10px;border:1px solid var(--accent);
-    border-radius:8px;background:#fff;
-  }
-  .ext-link:hover{background:#eff6ff;}
+  .ext-link{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;padding:6px 10px;border:1px solid var(--accent);border-radius:8px;background:#fff;}
 
   h2{font-size:15px;margin:14px 0 8px;color:var(--accent);}
 
-  .sync-status{
-    font-size:11px;padding:4px 10px;border-radius:20px;font-weight:700;
-    background:#e5e7eb;color:#6b7280;cursor:pointer;
-  }
+  .sync-status{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:700;background:#e5e7eb;color:#6b7280;}
   .sync-status.syncing{background:#dbeafe;color:#2563eb;}
   .sync-status.synced{background:#dcfce7;color:#16a34a;}
   .sync-status.error{background:#fee2e2;color:#dc2626;}
@@ -44,10 +33,7 @@
     border:2px solid var(--gold);border-radius:12px;
     padding:12px;margin-bottom:12px;
   }
-  .total-row{
-    display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
-    margin-top:4px;
-  }
+  .total-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px;}
   .total-label{font-size:12px;color:#78350f;font-weight:700;text-transform:uppercase;}
   .total-value{font-size:26px;font-weight:900;color:#78350f;font-family:monospace;}
   .total-value small{font-size:12px;font-weight:700;}
@@ -58,32 +44,18 @@
     border-top:1px dashed rgba(120,53,15,.3);
     display:flex;gap:10px;flex-wrap:wrap;font-weight:600;
   }
-  .total-prices .price-item{display:inline-flex;gap:3px;}
   .total-prices .up{color:#16a34a;}
   .total-prices .down{color:#dc2626;}
 
-  .currency-select{
-    padding:6px 10px;border:2px solid var(--gold);border-radius:8px;
-    font-weight:800;font-size:13px;background:#fff;color:#78350f;
-    cursor:pointer;font-family:monospace;
-  }
-  .currency-select:focus{outline:2px solid var(--gold);}
+  .currency-select{padding:6px 10px;border:2px solid var(--gold);border-radius:8px;font-weight:800;font-size:13px;background:#fff;color:#78350f;cursor:pointer;font-family:monospace;}
 
   .tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
-  .tab{
-    padding:10px 14px;background:var(--card);border:1px solid var(--border);
-    border-radius:8px;cursor:pointer;font-weight:600;color:var(--muted);font-size:13px;
-  }
+  .tab{padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-weight:600;color:var(--muted);font-size:13px;}
   .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
 
   .toolbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
-  .btn{
-    padding:9px 12px;border:none;border-radius:8px;cursor:pointer;
-    font-weight:600;font-size:12px;color:#fff;background:var(--card2);
-    border:1px solid var(--border);transition:.15s;
-  }
+  .btn{padding:9px 12px;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:12px;color:#fff;background:var(--card2);border:1px solid var(--border);transition:.15s;}
   .btn:hover{filter:brightness(.95);}
-  .btn:disabled{opacity:.5;cursor:not-allowed;filter:none;}
   .btn-primary{background:var(--accent);border-color:var(--accent);}
   .btn-green{background:var(--green);border-color:var(--green);}
   .btn-red{background:var(--red);border-color:var(--red);}
@@ -97,208 +69,72 @@
 
   #groupsContainer{display:flex;flex-direction:column;gap:8px;}
 
-  .card{
-    background:var(--card);border:1px solid var(--border);border-radius:10px;
-    padding:10px;
-    display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;
-    position:relative;
-  }
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;position:relative;}
   .card.waiting{border-left:4px solid var(--yellow);}
   .card.ready{border-left:4px solid var(--green);box-shadow:0 0 0 2px rgba(22,163,74,.15);}
   .card.idle{border-left:4px solid var(--border);}
   .card.cycle{border-left:4px solid var(--purple);}
-  .card.missed{border-left:4px solid var(--red);box-shadow:0 0 0 2px rgba(220,38,38,.15);}
+  .card.missed{border-left:4px solid var(--red);}
   .card.withdraw{border-left:4px solid var(--orange);background:#fff7ed;}
 
-  .card-top{
-    display:flex;justify-content:space-between;align-items:center;
-    width:100%;gap:6px;flex-wrap:wrap;
-  }
-  .pos-box{
-    display:flex;align-items:center;gap:4px;
-    background:#fff;border:1px solid var(--border);border-radius:6px;
-    padding:4px 6px;font-size:11px;
-  }
+  .card-top{display:flex;justify-content:space-between;align-items:center;width:100%;gap:6px;flex-wrap:wrap;}
+  .pos-box{display:flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--border);border-radius:6px;padding:4px 6px;font-size:11px;}
   .pos-box label{color:var(--muted);font-weight:600;}
-  .pos-input{
-    width:44px;padding:4px 6px;border:1px solid var(--border);
-    border-radius:4px;text-align:center;font-weight:700;font-size:12px;
-    font-family:monospace;background:#fff;color:var(--accent);
-  }
-  .pos-input:focus{outline:2px solid var(--accent);}
+  .pos-input{width:44px;padding:4px 6px;border:1px solid var(--border);border-radius:4px;text-align:center;font-weight:700;font-size:12px;font-family:monospace;background:#fff;color:var(--accent);}
 
   .top-actions{display:flex;gap:4px;flex-wrap:wrap;}
 
-  .btn-withdraw{
-    padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;
-    border:1px solid var(--border);background:#fff;color:var(--muted);
-    cursor:pointer;transition:.15s;
-  }
-  .btn-withdraw.active{
-    background:var(--orange);color:#fff;border-color:var(--orange);
-    box-shadow:0 0 0 2px rgba(234,88,12,.2);
-  }
-  .btn-edit{
-    padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;
-    border:1px solid var(--purple);background:#fff;color:var(--purple);
-    cursor:pointer;transition:.15s;
-  }
-  .btn-edit:hover{background:#f3e8ff;}
-  .btn-delete{
-    padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;
-    border:1px solid var(--red);background:#fff;color:var(--red);
-    cursor:pointer;transition:.15s;
-  }
-  .btn-delete:hover{background:#fee2e2;}
+  .btn-withdraw{padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;}
+  .btn-withdraw.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+  .btn-edit{padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;border:1px solid var(--purple);background:#fff;color:var(--purple);cursor:pointer;}
+  .btn-delete{padding:5px 9px;font-size:10px;font-weight:700;border-radius:6px;border:1px solid var(--red);background:#fff;color:var(--red);cursor:pointer;}
 
-  .inputs-row{
-    display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;
-  }
-  .input-group{
-    display:flex;align-items:center;gap:5px;
-    background:#fffbeb;border:2px solid var(--gold);border-radius:8px;
-    padding:6px 8px;
-  }
-  .input-group.meta{
-    background:#fdf2f8;border-color:var(--pink);
-  }
-  .input-group label{
-    font-size:10px;font-weight:800;color:#78350f;text-transform:uppercase;
-    white-space:nowrap;
-  }
+  .inputs-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+  .input-group{display:flex;align-items:center;gap:5px;background:#fffbeb;border:2px solid var(--gold);border-radius:8px;padding:6px 8px;}
+  .input-group.meta{background:#fdf2f8;border-color:var(--pink);}
+  .input-group label{font-size:10px;font-weight:800;color:#78350f;text-transform:uppercase;white-space:nowrap;}
   .input-group.meta label{color:#831843;}
-  .sats-input{
-    width:90px;padding:6px 8px;border:1px solid var(--gold);
-    border-radius:6px;text-align:right;font-weight:800;font-size:15px;
-    font-family:monospace;background:#fff;color:#78350f;
-  }
-  .input-group.meta .sats-input{
-    border-color:var(--pink);color:#831843;
-  }
-  .sats-input:focus{outline:2px solid var(--gold);}
+  .sats-input{width:90px;padding:6px 8px;border:1px solid var(--gold);border-radius:6px;text-align:right;font-weight:800;font-size:15px;font-family:monospace;background:#fff;color:#78350f;}
+  .input-group.meta .sats-input{border-color:var(--pink);color:#831843;}
   .input-group .unit{font-size:11px;font-weight:700;color:#78350f;}
   .input-group.meta .unit{color:#831843;}
+  .mini-currency{padding:4px 6px;border:1px solid var(--gold);border-radius:5px;font-weight:800;font-size:11px;background:#fff;color:#78350f;cursor:pointer;font-family:monospace;}
 
-  .mini-currency{
-    padding:4px 6px;border:1px solid var(--gold);border-radius:5px;
-    font-weight:800;font-size:11px;background:#fff;color:#78350f;
-    cursor:pointer;font-family:monospace;
-  }
-  .mini-currency:focus{outline:2px solid var(--gold);}
-
-  .equiv-hint{
-    font-size:10px;color:var(--muted);margin-top:2px;
-    font-weight:600;font-family:monospace;
-  }
+  .equiv-hint{font-size:10px;color:var(--muted);margin-top:2px;font-weight:600;font-family:monospace;}
 
   .info{flex:1;min-width:200px;}
-  .name{
-    font-weight:700;font-size:14px;color:var(--accent);
-    text-decoration:none;cursor:pointer;display:inline-block;
-    word-break:break-word;
-  }
-  .name:hover{text-decoration:underline;}
+  .name{font-weight:700;font-size:14px;color:var(--accent);text-decoration:none;cursor:pointer;display:inline-block;word-break:break-word;}
   .meta{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5;}
   .meta b{color:var(--txt);}
 
-  .timer{
-    font-family:monospace;font-size:13px;font-weight:700;
-    padding:4px 8px;border-radius:6px;background:var(--card2);
-    min-width:80px;text-align:center;color:var(--muted);
-  }
+  .timer{font-family:monospace;font-size:13px;font-weight:700;padding:4px 8px;border-radius:6px;background:var(--card2);min-width:80px;text-align:center;color:var(--muted);}
   .timer.running{color:var(--green);background:#dcfce7;}
   .timer.ready{color:var(--green);background:#dcfce7;}
   .timer.cycle{color:var(--purple);background:#f3e8ff;}
-  .timer.missed{color:var(--red);background:#fee2e2;}
 
   .actions{display:flex;gap:5px;flex-wrap:wrap;width:100%;align-items:center;}
   .actions .btn{flex:1;min-width:90px;padding:8px 6px;font-size:11px;}
 
-  .badge-wait{
-    display:inline-block;
-    padding:8px 12px;
-    border-radius:8px;
-    background:#fef9c3;
-    color:var(--yellow);
-    font-weight:700;
-    font-size:11px;
-    text-align:center;
-    flex:1;
-    min-width:90px;
-    border:1px solid #fde047;
-    user-select:none;
-    pointer-events:none;
-    cursor:default;
-    font-family:monospace;
-  }
-  .badge-wait.cycle{
-    background:#f3e8ff;
-    color:var(--purple);
-    border-color:#d8b4fe;
-  }
+  .badge-wait{display:inline-block;padding:8px 12px;border-radius:8px;background:#fef9c3;color:var(--yellow);font-weight:700;font-size:11px;text-align:center;flex:1;min-width:90px;border:1px solid #fde047;user-select:none;pointer-events:none;cursor:default;font-family:monospace;}
+  .badge-wait.cycle{background:#f3e8ff;color:var(--purple);border-color:#d8b4fe;}
 
-  .cycle-box{
-    width:100%;background:var(--card2);border:1px dashed var(--purple);
-    border-radius:8px;padding:8px;margin-top:6px;font-size:11px;
-  }
+  .cycle-box{width:100%;background:var(--card2);border:1px dashed var(--purple);border-radius:8px;padding:8px;margin-top:6px;font-size:11px;}
   .cycle-box.active{border-style:solid;background:#f3e8ff;}
   .cycle-box.missed{border-color:var(--red);background:#fee2e2;}
   .cycle-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
-  .cycle-row:last-child{margin-bottom:0;}
   .cycle-label{font-weight:700;color:var(--purple);min-width:60px;}
-  .cycle-input{
-    background:#fff;border:1px solid var(--border);color:var(--txt);
-    padding:5px 6px;border-radius:5px;font-size:12px;width:65px;
-  }
-  .cycle-status{
-    font-family:monospace;font-size:11px;font-weight:700;
-    padding:3px 7px;border-radius:5px;background:#fff;border:1px solid var(--border);
-  }
+  .cycle-input{background:#fff;border:1px solid var(--border);color:var(--txt);padding:5px 6px;border-radius:5px;font-size:12px;width:65px;}
+  .cycle-status{font-family:monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:5px;background:#fff;border:1px solid var(--border);}
   .cycle-status.waiting{color:var(--yellow);}
   .cycle-status.ready{color:var(--green);}
   .cycle-status.expired{color:var(--red);}
 
-  .notes-preview{
-    font-size:11px;color:var(--muted);background:#f9fafb;
-    border-left:3px solid var(--accent);padding:4px 8px;margin-top:4px;
-    border-radius:4px;white-space:pre-wrap;word-break:break-word;
-    max-height:60px;overflow:hidden;
-  }
+  .notes-preview{font-size:11px;color:var(--muted);background:#f9fafb;border-left:3px solid var(--accent);padding:4px 8px;margin-top:4px;border-radius:4px;white-space:pre-wrap;word-break:break-word;max-height:60px;overflow:hidden;}
   .notes-preview.empty{font-style:italic;color:#cbd5e1;}
 
-  .missed-badge{
-    display:inline-block;background:var(--red);color:#fff;font-weight:800;
-    font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;
-  }
+  .missed-badge{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;}
   .missed-badge.zero{background:var(--card2);color:var(--muted);}
-  .withdraw-badge{
-    display:inline-block;background:var(--orange);color:#fff;font-weight:800;
-    font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;
-  }
-
-  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:14px;}
-  .stat-box{
-    background:var(--card);border:1px solid var(--border);border-radius:10px;
-    padding:10px;text-align:center;
-  }
-  .stat-box .val{font-size:20px;font-weight:800;color:var(--accent);}
-  .stat-box .lbl{font-size:11px;color:var(--muted);margin-top:3px;}
-  .stat-box.red .val{color:var(--red);}
-  .stat-box.gold .val{color:var(--gold);}
-  .stat-box.pink .val{color:var(--pink);}
-
-  table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px;}
-  th,td{padding:6px 5px;text-align:left;border-bottom:1px solid var(--border);}
-  th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;}
-  tr:hover td{background:var(--card);}
-  td.num{text-align:right;font-family:monospace;}
-  .good{color:var(--green);}
-  .bad{color:var(--red);}
-  .warn{color:var(--yellow);}
-  .purple{color:var(--purple);}
-  .orange{color:var(--orange);}
-  .gold{color:var(--gold);}
-  .pink{color:var(--pink);}
+  .withdraw-badge{display:inline-block;background:var(--orange);color:#fff;font-weight:800;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px;}
 
   .hidden{display:none;}
   .toast{
@@ -309,138 +145,54 @@
   .toast.show{opacity:1;}
   .toast.red{background:var(--red);}
   .toast.green{background:var(--green);}
-  .toast.orange{background:var(--orange);}
-  .toast.gold{background:var(--gold);}
   .toast.pink{background:var(--pink);}
   .bar{height:5px;background:var(--card2);border-radius:3px;overflow:hidden;margin-top:5px;}
   .bar-fill{height:100%;background:var(--green);transition:width .3s;}
 
-  .modal-bg{
-    position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;
-    align-items:center;justify-content:center;z-index:200;padding:16px;
-  }
-  .modal{
-    background:#fff;border:1px solid var(--border);border-radius:12px;
-    padding:16px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;
-  }
+  .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px;}
+  .modal{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;}
   .modal h3{margin-top:0;color:var(--purple);}
-  .modal .cycle-row{margin-bottom:10px;}
-  .modal .cycle-input{width:70px;padding:8px;font-size:14px;text-align:center;}
   .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap;}
   .modal-hint{font-size:11px;color:var(--muted);margin:0 0 12px;line-height:1.5;}
 
   .field-row{margin-bottom:10px;}
-  .field-row label{
-    display:block;font-size:11px;font-weight:700;color:var(--muted);
-    text-transform:uppercase;margin-bottom:4px;
-  }
-  .field-row input, .field-row textarea, .field-row select{
-    width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;
-    font-size:14px;font-family:inherit;background:#fff;color:var(--txt);
-  }
+  .field-row label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  .field-row input, .field-row textarea{width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;font-family:inherit;background:#fff;color:var(--txt);}
   .field-row textarea{min-height:80px;resize:vertical;font-family:inherit;}
-  .field-row input:focus, .field-row textarea:focus{outline:2px solid var(--accent);}
   .field-row .hint{font-size:10px;color:var(--muted);margin-top:2px;}
 
-  .legend{
-    background:var(--card);border:1px solid var(--border);border-radius:8px;
-    padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6;
-  }
+  .legend{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6;}
   .legend b{color:var(--txt);}
   .legend .warn-sats{color:var(--gold);font-weight:700;}
 
-  .deleted-section{
-    background:#fef2f2;border:1px solid #fecaca;border-radius:8px;
-    padding:10px;margin-top:12px;font-size:11px;
-  }
+  .deleted-section{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px;margin-top:12px;font-size:11px;}
   .deleted-section h3{margin:0 0 6px;color:var(--red);font-size:12px;}
-  .deleted-item{
-    display:inline-flex;align-items:center;gap:6px;
-    background:#fff;border:1px solid #fecaca;border-radius:6px;
-    padding:4px 8px;margin:3px;font-size:11px;
-  }
-  .deleted-item button{
-    color:#fff;border:none;border-radius:4px;
-    padding:2px 6px;font-size:10px;cursor:pointer;font-weight:700;
-  }
+  .deleted-item{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #fecaca;border-radius:6px;padding:4px 8px;margin:3px;font-size:11px;}
+  .deleted-item button{color:#fff;border:none;border-radius:4px;padding:2px 6px;font-size:10px;cursor:pointer;font-weight:700;}
   .deleted-item .btn-restore{background:var(--green);}
   .deleted-item .btn-radical{background:var(--red);}
 
-  .checkpoint{
-    background:#fff;border:1px solid var(--border);border-radius:8px;
-    padding:10px;margin-bottom:6px;font-size:12px;
-    display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
-  }
+  .checkpoint{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
   .checkpoint .cp-info{flex:1;min-width:180px;}
   .checkpoint .cp-date{font-weight:700;color:var(--accent);font-size:11px;}
   .checkpoint .cp-total{font-family:monospace;font-weight:800;color:var(--gold);font-size:14px;}
   .checkpoint .cp-meta{font-family:monospace;font-weight:800;color:var(--pink);font-size:12px;}
   .checkpoint .cp-detail{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.4;}
-  .checkpoint .cp-actions{display:flex;gap:4px;}
 
-  .notes-general-box{
-    background:#fffbeb;border:2px solid var(--gold);border-radius:10px;
-    padding:10px;margin-bottom:12px;
-  }
+  .notes-general-box{background:#fffbeb;border:2px solid var(--gold);border-radius:10px;padding:10px;margin-bottom:12px;}
   .notes-general-box h3{margin:0 0 6px;color:#78350f;font-size:12px;}
-  .notes-general-box textarea{
-    width:100%;min-height:80px;padding:8px;border:1px solid var(--gold);
-    border-radius:6px;font-size:13px;font-family:inherit;background:#fff;
-    color:#78350f;resize:vertical;
-  }
-  .notes-general-box textarea:focus{outline:2px solid var(--gold);}
+  .notes-general-box textarea{width:100%;min-height:80px;padding:8px;border:1px solid var(--gold);border-radius:6px;font-size:13px;font-family:inherit;background:#fff;color:#78350f;resize:vertical;}
 
-  .loading-overlay{
-    position:fixed;inset:0;background:rgba(255,255,255,.95);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    z-index:500;font-size:14px;color:var(--accent);font-weight:700;padding:20px;text-align:center;
-  }
-  .loading-overlay .spinner{
-    width:40px;height:40px;border:4px solid #dbeafe;border-top-color:var(--accent);
-    border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;
-  }
-  .loading-overlay .err-msg{
-    color:var(--red);font-size:13px;margin-top:12px;max-width:400px;line-height:1.5;
-  }
-  .loading-overlay .btn-fix{
-    margin-top:16px;padding:10px 20px;background:var(--accent);color:#fff;
-    border:none;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;
-  }
+  .loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:500;font-size:14px;color:var(--accent);font-weight:700;padding:20px;text-align:center;}
+  .loading-overlay .spinner{width:40px;height:40px;border:4px solid #dbeafe;border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;}
+  .loading-overlay .err-msg{color:var(--red);font-size:13px;margin-top:12px;max-width:400px;line-height:1.5;}
   @keyframes spin{to{transform:rotate(360deg);}}
-
-  .error-panel{
-    position:fixed;bottom:0;left:0;right:0;background:#7f1d1d;color:#fff;
-    padding:10px 12px;font-size:11px;font-family:monospace;
-    z-index:900;max-height:50vh;overflow-y:auto;
-    border-top:3px solid #dc2626;
-    display:none;
-  }
-  .error-panel.show{display:block;}
-  .error-panel .err-head{
-    display:flex;justify-content:space-between;align-items:center;
-    gap:8px;margin-bottom:6px;font-weight:700;font-size:12px;
-  }
-  .error-panel .err-head button{
-    background:#fff;color:#7f1d1d;border:none;border-radius:5px;
-    padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;
-  }
-  .error-panel .err-item{
-    background:rgba(0,0,0,.25);border-radius:5px;
-    padding:6px 8px;margin-bottom:4px;word-break:break-word;
-    line-height:1.4;
-  }
-  .error-panel .err-item .err-src{color:#fca5a5;font-size:10px;}
 
   @media (max-width:480px){
     body{padding:8px;font-size:13px;}
     h1{font-size:16px;}
-    .tab{padding:8px 11px;font-size:12px;}
     .name{font-size:13px;}
-    .timer{font-size:12px;min-width:70px;}
-    .actions .btn{min-width:75px;font-size:10px;padding:7px 4px;}
-    .badge-wait{min-width:75px;font-size:10px;padding:7px 4px;}
     .total-value{font-size:22px;}
-    .sats-input{width:75px;font-size:14px;}
   }
 </style>
 </head>
@@ -450,15 +202,11 @@
   <div class="spinner"></div>
   <div id="loadingText">Cargando desde la nube...</div>
   <div class="err-msg" id="loadingError" style="display:none"></div>
-  <button class="btn-fix" id="loadingFixBtn" style="display:none" onclick="forceReconfigure()">⚙️ Reconfigurar credenciales</button>
 </div>
 
 <div class="topbar">
   <h1>⛏️ Panel de Faucets</h1>
-  <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-    <span class="sync-status" id="syncStatus" onclick="openCredentialsModal()" title="Click para cambiar Gist ID o Token">☁️ Cargando...</span>
-    <a class="ext-link" href="https://mytexto.netlify.app" target="_blank" rel="noopener">🔗 mytexto</a>
-  </div>
+  <a class="ext-link" href="https://mytexto.netlify.app" target="_blank" rel="noopener">🔗 mytexto</a>
 </div>
 
 <div class="total-panel">
@@ -513,28 +261,16 @@
 
   <div class="legend">
     <b>💰 Sats</b>: guardado siempre en sats, mostrado en la moneda elegida.<br>
-    <b>🎯 Meta</b>: número simple, se suma aparte.<br>
+    <b>🎯 Meta</b>: puede ser negativa. Se suma aparte.<br>
     <b>✏️</b>: editar faucet. <b>🗑️</b>: eliminar (restaurable abajo).<br>
     <span class="warn-sats">⚠️ Los sats NO se borran con ningún reset.</span>
   </div>
 
   <div id="groupsContainer"></div>
-
   <div id="deletedSection"></div>
 </div>
 
 <div id="tab-checkpoints" class="hidden"><div id="checkpointsContent"></div></div>
-
-<div class="error-panel" id="errorPanel">
-  <div class="err-head">
-    <span>⚠️ Errores detectados</span>
-    <div>
-      <button onclick="copyErrors()">📋 Copiar</button>
-      <button onclick="clearErrors()">✕ Cerrar</button>
-    </div>
-  </div>
-  <div id="errorList"></div>
-</div>
 
 <div class="toast" id="toast"></div>
 <div id="modalContainer"></div>
@@ -544,7 +280,6 @@
    CONFIG GIST
    ============================================================ */
 const GIST_KEY = 'faucets_gist_credentials_v6';
-const SATS_BACKUP_KEY = 'faucets_sats_backup_v6';
 const PRICES_CACHE_KEY = 'faucets_prices_cache_v6';
 const PRICES_REFRESH_MS = 5 * 60 * 1000;
 const LOCAL_BACKUP_KEY = 'faucets_local_backup_v22';
@@ -560,133 +295,10 @@ function getGistCredentials(){
   }catch(e){ return null; }
 }
 function saveGistCredentials(gistId, token){ localStorage.setItem(GIST_KEY, JSON.stringify({gistId, token})); }
-function clearGistCredentials(){ localStorage.removeItem(GIST_KEY); }
 function getGistFilename(){ return 'faucets-state.json'; }
 
 /* ============================================================
-   CAPTURA DE ERRORES VISIBLE
-   ============================================================ */
-let errorList = [];
-
-function addError(msg, src, line, col, stack){
-  const err = {
-    msg: String(msg),
-    src: src || '',
-    line: line || 0,
-    col: col || 0,
-    stack: stack || '',
-    time: new Date().toLocaleTimeString()
-  };
-  errorList.push(err);
-  if(errorList.length > 20) errorList = errorList.slice(-20);
-  renderErrors();
-}
-
-function renderErrors(){
-  const panel = document.getElementById('errorPanel');
-  const list = document.getElementById('errorList');
-  if(!panel || !list) return;
-  if(errorList.length === 0){ panel.classList.remove('show'); return; }
-  panel.classList.add('show');
-  list.innerHTML = errorList.map((e,i)=>`
-    <div class="err-item">
-      <div><b>#${i+1}</b> ${escapeHtml(e.msg)}</div>
-      ${e.src ? `<div class="err-src">📄 ${escapeHtml(e.src)}:${e.line}:${e.col}</div>` : ''}
-      <div class="err-src">🕒 ${e.time}</div>
-    </div>
-  `).join('');
-}
-
-function clearErrors(){ errorList = []; renderErrors(); }
-
-function copyErrors(){
-  const text = errorList.map((e,i)=>
-    `#${i+1} [${e.time}] ${e.msg}\n  ${e.src}:${e.line}:${e.col}\n  ${e.stack}`
-  ).join('\n\n');
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(text).then(()=>toast('📋 Errores copiados', false, true));
-  }else{
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    try{ document.execCommand('copy'); toast('📋 Errores copiados', false, true); }
-    catch(err){ toast('⚠️ No se pudo copiar', true); }
-    document.body.removeChild(ta);
-  }
-}
-
-function safeCall(fn, name){
-  return function(){
-    try{ return fn.apply(this, arguments); }
-    catch(err){
-      addError(`${name}: ${err.message}`, '', 0, 0, err.stack || '');
-      console.error(name, err);
-    }
-  };
-}
-
-window.addEventListener('error', (e)=>{
-  addError(
-    e.message || 'Error desconocido',
-    e.filename ? e.filename.split('/').pop() : '',
-    e.lineno, e.colno,
-    e.error && e.error.stack ? e.error.stack.split('\n').slice(0,3).join('\n') : ''
-  );
-});
-
-window.addEventListener('unhandledrejection', (e)=>{
-  addError(
-    'Promise rechazada: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason)),
-    '', 0, 0,
-    e.reason && e.reason.stack ? e.reason.stack.split('\n').slice(0,3).join('\n') : ''
-  );
-});
-
-/* ============================================================
-   BACKUP DE SATS
-   ============================================================ */
-function loadSatsBackup(){
-  try{ const raw = localStorage.getItem(SATS_BACKUP_KEY); if(!raw) return {}; return JSON.parse(raw); }catch(e){ return {}; }
-}
-function saveSatsBackupFromState(){
-  try{
-    const backup = {};
-    Object.keys(state.sites).forEach(id=>{
-      backup[id] = {
-        satsManual: state.sites[id].satsManual || 0,
-        metaManual: state.sites[id].metaManual || 0
-      };
-    });
-    localStorage.setItem(SATS_BACKUP_KEY, JSON.stringify(backup));
-  }catch(e){}
-}
-function restoreSatsFromBackup(){
-  const backup = loadSatsBackup();
-  let restored = 0;
-  Object.keys(backup).forEach(id=>{
-    if(state.sites[id]){
-      const b = backup[id];
-      if(!b) return;
-      if((state.sites[id].satsManual || 0) === 0 && b.satsManual > 0){ state.sites[id].satsManual = b.satsManual; restored++; }
-      if((state.sites[id].metaManual || 0) === 0 && b.metaManual > 0){ state.sites[id].metaManual = b.metaManual; restored++; }
-    }
-  });
-  return restored;
-}
-function updateSatsBackupForSite(id){
-  try{
-    const backup = loadSatsBackup();
-    backup[id] = {
-      satsManual: state.sites[id].satsManual || 0,
-      metaManual: state.sites[id].metaManual || 0
-    };
-    localStorage.setItem(SATS_BACKUP_KEY, JSON.stringify(backup));
-  }catch(e){}
-}
-
-/* ============================================================
-   PRECIOS (CoinGecko)
+   PRECIOS
    ============================================================ */
 let prices = { BTC: 0, DOGE: 0, LTC: 0, USDT: 1, updatedAt: 0 };
 let pricesPrev = {};
@@ -702,13 +314,12 @@ function loadPricesFromCache(){
 function savePricesToCache(){
   try{ localStorage.setItem(PRICES_CACHE_KEY, JSON.stringify(prices)); }catch(e){}
 }
-
 async function refreshPrices(force){
   const now = Date.now();
   if(!force && prices.updatedAt && (now - prices.updatedAt) < PRICES_REFRESH_MS) return;
   try{
     const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,dogecoin,litecoin,tether&vs_currencies=usd';
-    const res = await fetch(url, { headers: { 'Accept':'application/json' }});
+    const res = await fetch(url);
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     pricesPrev = { ...prices };
@@ -723,11 +334,9 @@ async function refreshPrices(force){
     renderPrices();
     renderPanel();
   }catch(err){
-    console.warn('Error precios:', err);
     renderPrices();
   }
 }
-
 function renderPrices(){
   const el = document.getElementById('totalPrices');
   if(!el) return;
@@ -751,7 +360,7 @@ function renderPrices(){
 }
 
 /* ============================================================
-   CONVERSIÓN DE MONEDAS
+   CONVERSIÓN
    ============================================================ */
 const SATS_PER_BTC = 100000000;
 function satsToUsd(sats){ return (sats / SATS_PER_BTC) * prices.BTC; }
@@ -794,19 +403,19 @@ const SITES = [
   {id:'ltcminer',    name:'Ltcminer.com',    url:'https://ltcminer.com',    sats:17, interval:24*3600, minWithdraw:0,   note:'Retiro directo'},
   {id:'freelitecoin',name:'Freelitecoin.online', url:'https://freelitecoin.online', sats:9, interval:24*3600, minWithdraw:0, note:'Minería · retiro inmediato'},
   {id:'1xfaucet',    name:'1xfaucet.com',    url:'https://1xfaucet.com',    sats:7,  interval:24*3600, minWithdraw:10,  note:'Offerwall · 80 monedas = 1 satoshi'},
-  {id:'earnviva',    name:'Earnviv.com',     url:'https://earnviv.com',     sats:6,  interval:24*3600, minWithdraw:1000,note:'PTC + wheel 5x/día · 1 moneda = 1 sat'},
+  {id:'earnviva',    name:'Earnviv.com',     url:'https://earnviv.com',     sats:6,  interval:24*3600, minWithdraw:1000,note:'PTC + wheel 5x/día'},
   {id:'bitcoearn',   name:'Bitcoearn.com',   url:'https://bitcoearn.com',   sats:6,  interval:24*3600, minWithdraw:50,  note:'PTC · 10 monedas = 1 sat'},
   {id:'gifttask',    name:'Gifttask.com',    url:'https://gifttask.com',    sats:4,  interval:24*3600, minWithdraw:50,  note:'PTC · 100 monedas = 1 sat'},
   {id:'coinli',      name:'Coinli.net',      url:'https://coinli.net',      sats:3,  interval:24*3600, minWithdraw:10,  note:'Faucet + bonus'},
-  {id:'tapcoin',     name:'Tap-coin.de',     url:'https://tap-coin.de',     sats:3,  interval:24*3600, minWithdraw:250, note:'Surf + Bitcotask · 1 sat = 8 monedas'},
-  {id:'dogezilla',   name:'Dogezilla.site',  url:'https://dogezilla.site',  sats:3,  interval:24*3600, minWithdraw:0,   note:'Offerwall · retiro inmediato FaucetPay'},
+  {id:'tapcoin',     name:'Tap-coin.de',     url:'https://tap-coin.de',     sats:3,  interval:24*3600, minWithdraw:250, note:'Surf + Bitcotask'},
+  {id:'dogezilla',   name:'Dogezilla.site',  url:'https://dogezilla.site',  sats:3,  interval:24*3600, minWithdraw:0,   note:'Offerwall · retiro inmediato'},
   {id:'dogeminerpro',name:'Dogeminerpro.com',url:'https://dogeminerpro.com',sats:2,  interval:24*3600, minWithdraw:0,   note:'Retiro directo'},
-  {id:'bestchange',  name:'Bestchange',      url:'https://bestchange.com',  sats:3,  interval:1*3600,  minWithdraw:1000, note:'Cada 1h · 10h/día = ~30 sats'},
-  {id:'adbtc',       name:'Adbtc.top',       url:'https://adbtc.top',       sats:3,  interval:4*3600,  minWithdraw:250,  note:'Cada 4h · 6 veces/día = ~18 sats'},
-  {id:'rewardjoy',   name:'Rewardjoy',       url:'https://rewardjoy.com',   sats:3,  interval:4*3600,  minWithdraw:5000, note:'Cada 4h · PTC y Bitcotask'},
-  {id:'yescoiner',   name:'Yescoiner',       url:'https://yescoiner.com',   sats:3,  interval:1*3600,  minWithdraw:250,  note:'Cada 1h · 5 veces/día = ~15 sats'},
+  {id:'bestchange',  name:'Bestchange',      url:'https://bestchange.com',  sats:3,  interval:1*3600,  minWithdraw:1000, note:'Cada 1h'},
+  {id:'adbtc',       name:'Adbtc.top',       url:'https://adbtc.top',       sats:3,  interval:4*3600,  minWithdraw:250,  note:'Cada 4h'},
+  {id:'rewardjoy',   name:'Rewardjoy',       url:'https://rewardjoy.com',   sats:3,  interval:4*3600,  minWithdraw:5000, note:'Cada 4h'},
+  {id:'yescoiner',   name:'Yescoiner',       url:'https://yescoiner.com',   sats:3,  interval:1*3600,  minWithdraw:250,  note:'Cada 1h'},
   {id:'dominovamos', name:'Domino Vamos',    url:'https://dominovamos.com', sats:3,  interval:24*3600, minWithdraw:2000, note:'Cada 24h'},
-  {id:'libertex',    name:'Libertex',        url:'https://libertex.com',    sats:0,  interval:2*3600,  minWithdraw:10000,note:'Cada 2h · monto no especificado'},
+  {id:'libertex',    name:'Libertex',        url:'https://libertex.com',    sats:0,  interval:2*3600,  minWithdraw:10000,note:'Cada 2h'},
 ];
 
 /* ============================================================
@@ -815,7 +424,6 @@ const SITES = [
 let state = defaultState();
 let syncTimer = null;
 let isSyncing = false;
-let isOnline = navigator.onLine;
 
 function defaultSiteState(){
   return {
@@ -846,8 +454,7 @@ function defaultState(){
     checkpoints: [],
     customSites: [],
     totalCurrency: 'sats',
-    siteOverrides: {},
-    pricesCache: null
+    siteOverrides: {}
   };
   SITES.forEach(site=>{ s.sites[site.id] = defaultSiteState(); });
   return s;
@@ -900,29 +507,23 @@ function loadLocalBackup(){
    OVERLAY
    ============================================================ */
 function showLoading(msg){
-  const ov = document.getElementById('loadingOverlay');
-  const txt = document.getElementById('loadingText');
-  const err = document.getElementById('loadingError');
-  const btn = document.getElementById('loadingFixBtn');
-  ov.style.display = 'flex';
-  txt.textContent = msg || 'Cargando desde la nube...';
-  txt.style.display = '';
-  err.style.display = 'none';
-  btn.style.display = 'none';
+  document.getElementById('loadingOverlay').style.display = 'flex';
+  document.getElementById('loadingText').textContent = msg || 'Cargando...';
+  document.getElementById('loadingText').style.display = '';
+  document.getElementById('loadingError').style.display = 'none';
 }
 function showLoadingError(msg){
-  const ov = document.getElementById('loadingOverlay');
-  const txt = document.getElementById('loadingText');
-  const err = document.getElementById('loadingError');
-  const btn = document.getElementById('loadingFixBtn');
-  ov.style.display = 'flex';
-  txt.style.display = 'none';
-  err.textContent = msg;
-  err.style.display = '';
-  btn.style.display = '';
+  document.getElementById('loadingOverlay').style.display = 'flex';
+  document.getElementById('loadingText').style.display = 'none';
+  const el = document.getElementById('loadingError');
+  el.innerHTML = msg;
+  el.style.display = '';
 }
 function hideLoading(){ document.getElementById('loadingOverlay').style.display = 'none'; }
-function forceReconfigure(){ clearGistCredentials(); openCredentialsModal(true); }
+function setSyncStatus(cls, txt){
+  const el = document.getElementById('syncStatus');
+  if(el){ el.className = 'sync-status ' + cls; el.textContent = txt; }
+}
 
 /* ============================================================
    CARGA DESDE GIST
@@ -930,9 +531,21 @@ function forceReconfigure(){ clearGistCredentials(); openCredentialsModal(true);
 async function loadStateFromGist(){
   const creds = getGistCredentials();
   if(!creds){
-    showLoading('Configurando credenciales...');
-    document.getElementById('loadingOverlay').style.display = 'none';
-    openCredentialsModal(true);
+    // Modo local (sin Gist). Cargar del backup local o vacío.
+    const backup = loadLocalBackup();
+    if(backup){
+      state = mergeState(backup);
+      normalizeStateObject(state);
+    } else {
+      state = defaultState();
+    }
+    document.getElementById('generalNotes').value = state.generalNotes || '';
+    document.getElementById('totalCurrency').value = state.totalCurrency || 'sats';
+    renderPrices();
+    renderPanel();
+    renderCheckpoints();
+    hideLoading();
+    refreshPrices();
     return;
   }
 
@@ -952,66 +565,53 @@ async function loadStateFromGist(){
     if(!res.ok){
       if(res.status === 401){ showLoadingError('❌ Token inválido o revocado.'); setSyncStatus('error', '⚠️ Token inválido'); return; }
       if(res.status === 404){ showLoadingError('❌ Gist no encontrado.'); setSyncStatus('error', '⚠️ Gist no encontrado'); return; }
-      if(res.status === 403){ showLoadingError('❌ Límite de GitHub alcanzado.'); setSyncStatus('error', '⚠️ Límite alcanzado'); return; }
+      if(res.status === 403){ showLoadingError('❌ Límite alcanzado.'); setSyncStatus('error', '⚠️ Límite'); return; }
       showLoadingError('❌ Error HTTP ' + res.status);
-      setSyncStatus('error', '⚠️ Error ' + res.status);
+      setSyncStatus('error', '⚠️ Error');
       return;
     }
 
     const gist = await res.json();
-    const filename = getGistFilename();
-    const file = gist.files[filename];
-
+    const file = gist.files[getGistFilename()];
     if(!file){
       const nombres = Object.keys(gist.files).join(', ');
-      showLoadingError(`❌ El Gist no tiene "${filename}". Archivos: ${nombres}`);
+      showLoadingError(`❌ El Gist no tiene "${getGistFilename()}". Archivos: ${nombres}`);
       setSyncStatus('error', '⚠️ Archivo no encontrado');
       return;
     }
 
     const content = (file.content || '').trim();
-
     if(content === '' || content === '{}'){
       state = defaultState();
       normalizeStateObject(state);
-      const restored = restoreSatsFromBackup();
-      if(restored > 0) console.log('Sats restaurados:', restored);
-      await saveStateToGist();
-    } else {
+    }else{
       const parsed = JSON.parse(content);
       state = mergeState(parsed);
       normalizeStateObject(state);
       saveLocalBackup();
-      const restored = restoreSatsFromBackup();
-      if(restored > 0){
-        console.log('Sats restaurados:', restored);
-        saveStateToGist();
-      }
     }
 
     setSyncStatus('synced', '☁️ Sincronizado');
     hideLoading();
-
     document.getElementById('generalNotes').value = state.generalNotes || '';
     document.getElementById('totalCurrency').value = state.totalCurrency || 'sats';
-
     renderPrices();
-    renderPanel(); renderCheckpoints();
+    renderPanel();
+    renderCheckpoints();
     refreshPrices();
-
   }catch(err){
-    console.error('Error cargando Gist:', err);
-    addError('loadStateFromGist: ' + err.message, '', 0, 0, err.stack || '');
-    if(err.name === 'AbortError'){ showLoadingError('⏱️ Timeout.'); setSyncStatus('error', '⚠️ Timeout'); }
-    else{ showLoadingError('❌ Error de conexión: ' + err.message); setSyncStatus('error', '⚠️ Error de conexión'); }
+    console.error(err);
+    if(err.name === 'AbortError') showLoadingError('⏱️ Timeout.');
+    else showLoadingError('❌ Error: ' + err.message);
+    setSyncStatus('error', '⚠️ Error');
     const backup = loadLocalBackup();
     if(backup){
       state = mergeState(backup);
       normalizeStateObject(state);
-      restoreSatsFromBackup();
       document.getElementById('generalNotes').value = state.generalNotes || '';
       renderPrices();
-      renderPanel(); renderCheckpoints();
+      renderPanel();
+      renderCheckpoints();
     }
   }
 }
@@ -1036,9 +636,6 @@ function mergeState(parsed){
       if(typeof parsed.sites[site.id].metaManual !== 'number') parsed.sites[site.id].metaManual = 0;
       if(!parsed.sites[site.id].currency) parsed.sites[site.id].currency = 'sats';
     }
-  });
-  Object.keys(parsed.sites).forEach(id=>{
-    if(!allIds.has(id)){ parsed.sites[id] = {...defaultSiteState(), ...parsed.sites[id]}; }
   });
 
   parsed.totals = {...def.totals, ...(parsed.totals||{})};
@@ -1065,7 +662,8 @@ function mergeState(parsed){
    ============================================================ */
 function saveState(){
   saveLocalBackup();
-  saveSatsBackupFromState();
+  const creds = getGistCredentials();
+  if(!creds){ setSyncStatus('error', '⚠️ Sin configurar'); return; }
   if(syncTimer) clearTimeout(syncTimer);
   setSyncStatus('syncing', '💾 Guardando...');
   syncTimer = setTimeout(()=>{ saveStateToGist(); }, SYNC_DEBOUNCE_MS);
@@ -1074,8 +672,7 @@ function saveState(){
 async function saveStateToGist(){
   if(isSyncing) return;
   const creds = getGistCredentials();
-  if(!creds){ setSyncStatus('error', '⚠️ Sin configurar'); return; }
-
+  if(!creds) return;
   isSyncing = true;
   try{
     const url = `https://api.github.com/gists/${creds.gistId}`;
@@ -1085,15 +682,10 @@ async function saveStateToGist(){
       headers: { 'Authorization': `token ${creds.token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
-    if(!res.ok){
-      if(res.status === 401) throw new Error('Token inválido');
-      if(res.status === 403) throw new Error('Límite alcanzado');
-      throw new Error('HTTP ' + res.status);
-    }
+    if(!res.ok) throw new Error('HTTP ' + res.status);
     setSyncStatus('synced', '☁️ Sincronizado');
   }catch(err){
-    console.error('Error guardando:', err);
-    addError('saveStateToGist: ' + err.message, '', 0, 0, err.stack || '');
+    console.error(err);
     setSyncStatus('error', '⚠️ ' + err.message);
   }finally{
     isSyncing = false;
@@ -1103,99 +695,13 @@ async function saveStateToGist(){
 function forceSync(){
   if(syncTimer) clearTimeout(syncTimer);
   saveLocalBackup();
-  saveSatsBackupFromState();
   saveStateToGist();
   toast('☁️ Sincronizando...', false, true);
-}
-
-function setSyncStatus(cls, txt){
-  const el = document.getElementById('syncStatus');
-  if(el){ el.className = 'sync-status ' + cls; el.textContent = txt; }
-}
-
-/* ============================================================
-   MODAL CREDENCIALES
-   ============================================================ */
-function openCredentialsModal(firstTime){
-  const creds = getGistCredentials();
-  const bg = document.createElement('div');
-  bg.className = 'modal-bg';
-  bg.onclick = e=>{ if(e.target===bg && !firstTime) closeModal(); };
-  bg.innerHTML = `
-    <div class="modal" onclick="event.stopPropagation()">
-      <h3>☁️ Configurar GitHub Gist</h3>
-      <p class="modal-hint">${firstTime ? 'Primera vez: configura tu Gist ID y Token. Solo se guardan en este navegador.' : 'Cambia tus credenciales de Gist.'}</p>
-      <div class="field-row">
-        <label>Gist ID *</label>
-        <input type="text" id="cfgGistId" value="${creds?creds.gistId:''}" placeholder="ej: d83b58d17dcf53f8a16280e6c4a7ab38">
-      </div>
-      <div class="field-row">
-        <label>Personal Access Token (PAT) *</label>
-        <input type="password" id="cfgToken" value="${creds?creds.token:''}" placeholder="ghp_...">
-        <div class="hint">Token con scope solo gist. No se comparte.</div>
-      </div>
-      <div class="modal-actions">
-        ${!firstTime ? '<button class="btn btn-red" onclick="wipeCredentials()">🗑️ Borrar</button>' : ''}
-        ${!firstTime ? '<button class="btn btn-gray" onclick="closeModal()">Cancelar</button>' : ''}
-        <button class="btn btn-green" onclick="applyCredentials()">💾 Guardar y probar</button>
-      </div>
-    </div>`;
-  document.getElementById('modalContainer').appendChild(bg);
-  if(firstTime) setTimeout(()=>{ const el = document.getElementById('cfgGistId'); if(el) el.focus(); }, 100);
-}
-
-function applyCredentials(){
-  const gistId = document.getElementById('cfgGistId').value.trim();
-  const token = document.getElementById('cfgToken').value.trim();
-  if(!gistId || !token){ alert('Necesitas Gist ID y Token'); return; }
-  saveGistCredentials(gistId, token);
-  closeModal();
-  showLoading('Probando credenciales...');
-  (async ()=>{
-    try{
-      const controller = new AbortController();
-      const timeout = setTimeout(()=>controller.abort(), 15000);
-      const res = await fetch(`https://api.github.com/gists/${gistId}`, {
-        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' },
-        signal: controller.signal
-      });
-      clearTimeout(timeout);
-      if(!res.ok){
-        if(res.status === 401) showLoadingError('❌ Token inválido.');
-        else if(res.status === 404) showLoadingError('❌ Gist no encontrado.');
-        else if(res.status === 403) showLoadingError('❌ Límite alcanzado.');
-        else showLoadingError('❌ Error HTTP ' + res.status);
-        clearGistCredentials();
-        return;
-      }
-      const gist = await res.json();
-      const file = gist.files[getGistFilename()];
-      if(!file){
-        const nombres = Object.keys(gist.files).join(', ');
-        showLoadingError(`❌ El Gist no tiene "${getGistFilename()}". Archivos: ${nombres}`);
-        clearGistCredentials();
-        return;
-      }
-      await loadStateFromGist();
-    }catch(err){
-      if(err.name === 'AbortError') showLoadingError('⏱️ Timeout.');
-      else showLoadingError('❌ Error: ' + err.message);
-    }
-  })();
-}
-
-function wipeCredentials(){
-  if(!confirm('¿Borrar las credenciales?')) return;
-  clearGistCredentials();
-  closeModal();
-  toast('🗑️ Credenciales borradas', true);
-  setTimeout(()=>openCredentialsModal(true), 500);
 }
 
 /* ============================================================
    HELPERS
    ============================================================ */
-function isDeleted(id){ return (state.deletedSites||[]).includes(id) || (state.radicalDeleted||[]).includes(id); }
 function getBaseSite(id){ return SITES.find(s=>s.id===id) || (state.customSites||[]).find(s=>s.id===id); }
 function getEffectiveSite(id){
   const base = getBaseSite(id);
@@ -1204,10 +710,6 @@ function getEffectiveSite(id){
   return { ...base, ...ov };
 }
 function findSite(id){ try{ return getEffectiveSite(id) || null; }catch(e){ return null; } }
-function getAllSites(){
-  const allIds = new Set([...SITES.map(s=>s.id), ...(state.customSites||[]).map(s=>s.id)]);
-  return [...allIds].map(id => getEffectiveSite(id)).filter(Boolean);
-}
 function getActiveSites(){
   const radicalSet = new Set(state.radicalDeleted||[]);
   const deletedSet = new Set(state.deletedSites||[]);
@@ -1225,22 +727,49 @@ function getTotalMeta(){
     return sum + (st && typeof st.metaManual === 'number' ? st.metaManual : 0);
   }, 0);
 }
-function moveSiteToPosition(id, newPos){
-  const order = [...(state.order||[])];
-  const currentIdx = order.indexOf(id);
-  if(currentIdx === -1) return;
-  order.splice(currentIdx, 1);
-  const targetIdx = Math.max(0, Math.min(order.length, newPos - 1));
-  order.splice(targetIdx, 0, id);
-  state.order = order;
-  saveState();
-  renderPanel();
-  const site = findSite(id);
-  if(site) toast(`↔️ ${site.name} movido a #${targetIdx+1}`, false, true);
+function escapeHtml(text){
+  if(text === undefined || text === null) return '';
+  const div = document.createElement('div');
+  div.textContent = String(text);
+  return div.innerHTML;
+}
+function fmtInterval(sec){
+  if(!sec) return '—';
+  if(sec<3600) return (sec/60)+' min';
+  if(sec<86400) return (sec/3600)+'h';
+  return (sec/86400)+' día(s)';
+}
+function fmtTime(ms){
+  if(ms<=0) return '00:00';
+  const s = Math.floor(ms/1000);
+  const h = Math.floor(s/3600);
+  const m = Math.floor((s%3600)/60);
+  const ss = s%60;
+  if(h>0) return `${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m`;
+  return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+}
+function fmtDuration(sec){
+  if(!sec) return '—';
+  if(sec<60) return `${sec}s`;
+  if(sec<3600) return `${Math.floor(sec/60)}m ${sec%60}s`;
+  const h = Math.floor(sec/3600);
+  const m = Math.floor((sec%3600)/60);
+  if(m===0) return `${h}h`;
+  return `${h}h ${m}m`;
+}
+function fmtDate(ts){
+  const d = new Date(ts);
+  const dd = String(d.getDate()).padStart(2,'0');
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const yy = d.getFullYear();
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mi = String(d.getMinutes()).padStart(2,'0');
+  const ss = String(d.getSeconds()).padStart(2,'0');
+  return `${dd}/${mm}/${yy} ${hh}:${mi}:${ss}`;
 }
 
 /* ============================================================
-   RENDER PANEL
+   PANEL
    ============================================================ */
 function renderPanel(){
   const cont = document.getElementById('groupsContainer');
@@ -1272,7 +801,7 @@ function renderCard(site, position){
   else if(prices.BTC){
     const v = satsToCurrency(st.satsManual || 0, currency);
     satsDisplayStr = fmtCurrencyShort(v, currency);
-  } else satsDisplayStr = '0';
+  }
 
   card.innerHTML = `
     <div class="card-top">
@@ -1282,8 +811,8 @@ function renderCard(site, position){
       </div>
       <div class="top-actions">
         <button class="btn-withdraw ${withdrawActive}" id="btnWithdraw-${site.id}" onclick="toggleWithdraw('${site.id}')">${withdrawText}</button>
-        <button class="btn-edit" onclick="openEditSiteModal('${site.id}')" title="Editar faucet">✏️</button>
-        <button class="btn btn-xs btn-cyan" onclick="openNotesModal('${site.id}')" title="Apuntes">📝</button>
+        <button class="btn-edit" onclick="openEditSiteModal('${site.id}')">✏️</button>
+        <button class="btn btn-xs btn-cyan" onclick="openNotesModal('${site.id}')">📝</button>
         <button class="btn-delete" onclick="deleteSite('${site.id}')">🗑️</button>
       </div>
     </div>
@@ -1344,13 +873,6 @@ function renderCard(site, position){
   return card;
 }
 
-function escapeHtml(text){
-  if(text === undefined || text === null) return '';
-  const div = document.createElement('div');
-  div.textContent = String(text);
-  return div.innerHTML;
-}
-
 function renderDeletedSection(){
   const cont = document.getElementById('deletedSection');
   if(!cont) return;
@@ -1363,7 +885,7 @@ function renderDeletedSection(){
     html += `<span class="deleted-item">
       ${escapeHtml(site.name)}
       <button class="btn-restore" onclick="restoreSite('${id}')">↩ Restaurar</button>
-      <button class="btn-radical" onclick="radicalDeleteSite('${id}')" title="Eliminar definitivamente">❌</button>
+      <button class="btn-radical" onclick="radicalDeleteSite('${id}')">❌</button>
     </span>`;
   });
   html += `</div></div>`;
@@ -1374,14 +896,11 @@ function updateTotalDisplay(){
   const totalSats = getTotalSats();
   const totalMeta = getTotalMeta();
   const currency = state.totalCurrency || 'sats';
-
   const elSats = document.getElementById('totalSats');
   const elEquiv = document.getElementById('totalEquiv');
   const elMeta = document.getElementById('totalMeta');
   const elCur = document.getElementById('totalCurrency');
-
   if(elCur) elCur.value = currency;
-
   if(elSats){
     if(currency === 'sats' || !prices.BTC){
       elSats.innerHTML = `${totalSats.toLocaleString()} <small>sats</small>`;
@@ -1397,13 +916,24 @@ function updateTotalDisplay(){
   if(elMeta){ elMeta.textContent = `🎯 Total metas: ${totalMeta.toLocaleString()} sats`; }
 }
 
+/* ============================================================
+   ACCIONES
+   ============================================================ */
 function onTotalCurrencyChange(v){ state.totalCurrency = v; saveState(); updateTotalDisplay(); renderPanel(); }
 function onPositionChange(id, value){
   const newPos = parseInt(value)||1;
-  const clamped = Math.max(1, Math.min(getActiveSites().length, newPos));
-  moveSiteToPosition(id, clamped);
+  const order = [...(state.order||[])];
+  const currentIdx = order.indexOf(id);
+  if(currentIdx === -1) return;
+  order.splice(currentIdx, 1);
+  const targetIdx = Math.max(0, Math.min(order.length, newPos - 1));
+  order.splice(targetIdx, 0, id);
+  state.order = order;
+  saveState();
+  renderPanel();
+  const site = findSite(id);
+  if(site) toast(`↔️ ${site.name} movido a #${targetIdx+1}`, false, true);
 }
-
 function onSatsChange(id, value){
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
   const st = state.sites[id];
@@ -1412,11 +942,10 @@ function onSatsChange(id, value){
   let sats;
   if(currency === 'sats') sats = Math.max(0, Math.round(num));
   else{
-    if(!prices.BTC){ toast('⚠️ Sin precios disponibles aún', true); return; }
+    if(!prices.BTC){ toast('⚠️ Sin precios aún', true); return; }
     sats = Math.max(0, currencyToSats(num, currency));
   }
   st.satsManual = sats;
-  updateSatsBackupForSite(id);
   saveState();
   updateTotalDisplay();
   renderPanel();
@@ -1424,11 +953,17 @@ function onSatsChange(id, value){
   if(site) toast(`💰 ${site.name}: ${sats.toLocaleString()} sats`, false, true);
 }
 
+/* ============================================================
+   META — AHORA ACEPTA NEGATIVOS
+   ============================================================ */
 function onMetaChange(id, value){
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
   const st = state.sites[id];
-  st.metaManual = parseInt(value) || 0);
-  updateSatsBackupForSite(id);
+
+  // Acepta negativos. Si el valor es inválido (vacío, "-", etc.), se pone 0.
+  const parsed = parseInt(String(value).trim(), 10);
+  st.metaManual = isNaN(parsed) ? 0 : parsed;
+
   saveState();
   updateTotalDisplay();
   const site = findSite(id);
@@ -1441,373 +976,6 @@ function onCurrencyChange(id, v){
   saveState();
   renderPanel();
 }
-
-function fmtInterval(sec){
-  if(!sec) return '—';
-  if(sec<3600) return (sec/60)+' min';
-  if(sec<86400) return (sec/3600)+'h';
-  return (sec/86400)+' día(s)';
-}
-
-function fmtTime(ms){
-  if(ms<=0) return '00:00';
-  const s = Math.floor(ms/1000);
-  const h = Math.floor(s/3600);
-  const m = Math.floor((s%3600)/60);
-  const ss = s%60;
-  if(h>0) return `${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m`;
-  return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
-}
-
-function fmtDuration(sec){
-  if(!sec) return '—';
-  if(sec<60) return `${sec}s`;
-  if(sec<3600) return `${Math.floor(sec/60)}m ${sec%60}s`;
-  const h = Math.floor(sec/3600);
-  const m = Math.floor((sec%3600)/60);
-  if(m===0) return `${h}h`;
-  return `${h}h ${m}m`;
-}
-
-function fmtDate(ts){
-  const d = new Date(ts);
-  const dd = String(d.getDate()).padStart(2,'0');
-  const mm = String(d.getMonth()+1).padStart(2,'0');
-  const yy = d.getFullYear();
-  const hh = String(d.getHours()).padStart(2,'0');
-  const mi = String(d.getMinutes()).padStart(2,'0');
-  const ss = String(d.getSeconds()).padStart(2,'0');
-  return `${dd}/${mm}/${yy} ${hh}:${mi}:${ss}`;
-}
-
-/* ============================================================
-   APUNTES GENERALES
-   ============================================================ */
-function saveGeneralNotes(value){ state.generalNotes = value; saveState(); }
-function clearGeneralNotes(){
-  if(!confirm('¿Borrar los apuntes generales?')) return;
-  state.generalNotes = '';
-  saveState();
-  document.getElementById('generalNotes').value = '';
-  toast('🗑️ Apuntes generales borrados', true);
-}
-
-/* ============================================================
-   APUNTES POR FAUCET
-   ============================================================ */
-function openNotesModal(id){
-  const site = findSite(id);
-  if(!site) return;
-  if(!state.sites[id]) state.sites[id] = defaultSiteState();
-  const st = state.sites[id];
-  const bg = document.createElement('div');
-  bg.className = 'modal-bg';
-  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
-  bg.innerHTML = `
-    <div class="modal" onclick="event.stopPropagation()">
-      <h3>📝 Apuntes — ${escapeHtml(site.name)}</h3>
-      <div class="field-row">
-        <label>Apuntes del faucet</label>
-        <textarea id="notesTextarea" placeholder="Escribe aquí tus apuntes...">${escapeHtml(st.notes || '')}</textarea>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-red" onclick="clearNotes('${id}')">🗑️ Borrar</button>
-        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
-        <button class="btn btn-green" onclick="saveNotes('${id}')">💾 Guardar</button>
-      </div>
-    </div>`;
-  document.getElementById('modalContainer').appendChild(bg);
-  setTimeout(()=>{ const el = document.getElementById('notesTextarea'); if(el) el.focus(); }, 100);
-}
-function saveNotes(id){
-  const txt = document.getElementById('notesTextarea').value;
-  if(!state.sites[id]) state.sites[id] = defaultSiteState();
-  state.sites[id].notes = txt;
-  saveState();
-  updateCard(id);
-  closeModal();
-  toast(`📝 Apuntes guardados`, false, true);
-}
-function clearNotes(id){
-  if(!confirm('¿Borrar los apuntes de este faucet?')) return;
-  if(!state.sites[id]) state.sites[id] = defaultSiteState();
-  state.sites[id].notes = '';
-  saveState();
-  updateCard(id);
-  closeModal();
-  toast('🗑️ Apuntes borrados', true);
-}
-
-/* ============================================================
-   EDITAR FAUCET
-   ============================================================ */
-function openEditSiteModal(id){
-  const base = getBaseSite(id);
-  const eff = getEffectiveSite(id);
-  if(!base || !eff) return;
-  const h = Math.floor((eff.interval||0)/3600);
-  const m = Math.floor(((eff.interval||0)%3600)/60);
-  const s = (eff.interval||0)%60;
-
-  const bg = document.createElement('div');
-  bg.className = 'modal-bg';
-  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
-  bg.innerHTML = `
-    <div class="modal" onclick="event.stopPropagation()">
-      <h3>✏️ Editar — ${escapeHtml(base.name)}</h3>
-      <p class="modal-hint">Los cambios se guardan como "overrides" y no tocan el HTML original.</p>
-      <div class="field-row"><label>Nombre</label><input type="text" id="editName" value="${escapeHtml(eff.name)}"></div>
-      <div class="field-row"><label>URL</label><input type="text" id="editUrl" value="${escapeHtml(eff.url)}"></div>
-      <div class="field-row"><label>Sats por reclamo</label><input type="number" id="editSats" value="${eff.sats}" min="0"></div>
-      <div class="field-row">
-        <label>Intervalo</label>
-        <div style="display:flex;gap:6px;align-items:center;">
-          <input type="number" id="editH" value="${h}" min="0" style="width:70px;text-align:center"><span style="font-weight:700;font-size:12px">h</span>
-          <input type="number" id="editM" value="${m}" min="0" max="59" style="width:70px;text-align:center"><span style="font-weight:700;font-size:12px">m</span>
-          <input type="number" id="editS" value="${s}" min="0" max="59" style="width:70px;text-align:center"><span style="font-weight:700;font-size:12px">s</span>
-        </div>
-      </div>
-      <div class="field-row"><label>Retiro mínimo (sats) — 0 = inmediato</label><input type="number" id="editMinWithdraw" value="${eff.minWithdraw}" min="0"></div>
-      <div class="field-row"><label>Nota / descripción</label><input type="text" id="editNote" value="${escapeHtml(eff.note || '')}"></div>
-      <div class="modal-actions">
-        <button class="btn btn-red" onclick="resetSiteOverride('${id}')">↺ Revertir</button>
-        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
-        <button class="btn btn-green" onclick="saveEditSite('${id}')">💾 Guardar</button>
-      </div>
-    </div>`;
-  document.getElementById('modalContainer').appendChild(bg);
-}
-
-function saveEditSite(id){
-  const name = document.getElementById('editName').value.trim();
-  const url = document.getElementById('editUrl').value.trim();
-  const sats = Math.max(0, parseInt(document.getElementById('editSats').value)||0);
-  const h = parseInt(document.getElementById('editH').value)||0;
-  const m = parseInt(document.getElementById('editM').value)||0;
-  const s = parseInt(document.getElementById('editS').value)||0;
-  const interval = h*3600 + m*60 + s;
-  const minWithdraw = Math.max(0, parseInt(document.getElementById('editMinWithdraw').value)||0);
-  const note = document.getElementById('editNote').value.trim();
-  if(!name){ alert('El nombre es obligatorio'); return; }
-  if(interval < 60){ alert('El intervalo debe ser al menos 60 segundos'); return; }
-  if(!state.siteOverrides) state.siteOverrides = {};
-  state.siteOverrides[id] = { name, url, sats, interval, minWithdraw, note };
-  saveState();
-  closeModal();
-  renderPanel();
-  toast(`✏️ ${name} actualizado`, false, true);
-}
-
-function resetSiteOverride(id){
-  if(!confirm('¿Revertir este faucet a sus valores originales?')) return;
-  if(state.siteOverrides) delete state.siteOverrides[id];
-  saveState();
-  closeModal();
-  renderPanel();
-  toast('↺ Cambios revertidos', false, true);
-}
-
-/* ============================================================
-   LIMPIAR METAS (todas a 0, sin tocar sats)
-   ============================================================ */
-function clearAllMetas(){
-  const activeSites = getActiveSites();
-  const totalMeta = getTotalMeta();
-  if(totalMeta === 0){
-    toast('🎯 No hay metas para borrar', false, true);
-    return;
-  }
-  if(!confirm(`🧹 ¿Limpiar TODAS las metas?\n\nSe pondrán a 0 las metas de ${activeSites.length} faucets.\n\nSe conservan:\n· 💰 Sats\n· 📝 Apuntes\n· 📌 Puntos de control\n\n¿Continuar?`)) return;
-
-  activeSites.forEach(s=>{
-    const st = state.sites[s.id];
-    if(st) st.metaManual = 0;
-  });
-  saveState();
-  renderPanel();
-  updateTotalDisplay();
-  toast(`🧹 Metas limpiadas (se conservaron los sats)`, false, true, false, true);
-}
-
-/* ============================================================
-   PUNTOS DE CONTROL
-   ============================================================ */
-function saveCheckpoint(){
-  const activeSites = getActiveSites();
-  const satsSnapshot = {};
-  const metaSnapshot = {};
-  let total = 0, totalMeta = 0;
-  activeSites.forEach(s=>{
-    const st = state.sites[s.id];
-    const v = (st && st.satsManual) || 0;
-    const mv = (st && st.metaManual) || 0;
-    satsSnapshot[s.id] = v;
-    metaSnapshot[s.id] = mv;
-    total += v;
-    totalMeta += mv;
-  });
-  const cp = { id: 'cp_' + Date.now(), timestamp: Date.now(), total: total, totalMeta: totalMeta, sats: satsSnapshot, metas: metaSnapshot };
-  if(!state.checkpoints) state.checkpoints = [];
-  state.checkpoints.push(cp);
-  saveState();
-  updateTotalDisplay();
-  renderCheckpoints();
-  toast(`📌 Punto: ${total} sats · ${totalMeta} meta`, false, true);
-}
-
-function renderCheckpoints(){
-  const cont = document.getElementById('checkpointsContent');
-  if(!cont) return;
-  const cps = [...(state.checkpoints||[])].sort((a,b)=>b.timestamp - a.timestamp);
-  let html = `
-  <h2>📌 Puntos de control</h2>
-  <div class="toolbar">
-    <button class="btn btn-gold" onclick="saveCheckpoint()">📌 Guardar punto ahora</button>
-    <button class="btn btn-red" onclick="clearAllCheckpoints()">🗑️ Borrar TODOS</button>
-  </div>
-  <p style="font-size:11px;color:var(--muted)">Total: <b>${cps.length}</b></p>`;
-  if(cps.length === 0){
-    html += `<p style="color:var(--muted);font-style:italic">Aún no has guardado ningún punto de control.</p>`;
-    cont.innerHTML = html;
-    return;
-  }
-  cps.forEach((cp, idx)=>{
-    const prev = cps[idx+1];
-    const diff = prev ? (cp.total - prev.total) : 0;
-    const diffTxt = prev ? (diff >= 0 ? `<span class="good">+${diff}</span>` : `<span class="bad">${diff}</span>`) : '—';
-    html += `<div class="checkpoint">
-      <div class="cp-info">
-        <div class="cp-date">📅 ${fmtDate(cp.timestamp)}</div>
-        <div class="cp-total">${cp.total.toLocaleString()} sats <span style="font-size:11px;color:var(--muted)">(dif: ${diffTxt})</span></div>
-        ${cp.totalMeta !== undefined ? `<div class="cp-meta">🎯 ${cp.totalMeta.toLocaleString()} meta</div>` : ''}
-        <div class="cp-detail">${renderCheckpointDetail(cp)}</div>
-      </div>
-      <div class="cp-actions"><button class="btn btn-xs btn-red" onclick="deleteCheckpoint('${cp.id}')">🗑️</button></div>
-    </div>`;
-  });
-  cont.innerHTML = html;
-}
-
-function renderCheckpointDetail(cp){
-  const parts = [];
-  Object.keys(cp.sats||{}).forEach(id=>{
-    const site = findSite(id);
-    if(!site) return;
-    const v = cp.sats[id];
-    if(v > 0) parts.push(`${site.name}: ${v}`);
-  });
-  return parts.length ? parts.join(' · ') : '(todos en 0)';
-}
-
-function deleteCheckpoint(id){
-  if(!confirm('¿Borrar este punto de control?')) return;
-  state.checkpoints = (state.checkpoints||[]).filter(c=>c.id!==id);
-  saveState();
-  renderCheckpoints();
-  toast('🗑️ Punto borrado', true);
-}
-function clearAllCheckpoints(){
-  if(!confirm(`¿Borrar TODOS los puntos (${(state.checkpoints||[]).length})?`)) return;
-  state.checkpoints = [];
-  saveState();
-  renderCheckpoints();
-  toast('🗑️ Todos los puntos borrados', true);
-}
-
-/* ============================================================
-   AGREGAR FAUCET
-   ============================================================ */
-function openAddSiteModal(){
-  const bg = document.createElement('div');
-  bg.className = 'modal-bg';
-  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
-  bg.innerHTML = `
-    <div class="modal" onclick="event.stopPropagation()">
-      <h3>➕ Agregar faucet</h3>
-      <div class="field-row"><label>Nombre *</label><input type="text" id="newName" placeholder="Ej: Mi Faucet" required></div>
-      <div class="field-row"><label>URL</label><input type="text" id="newUrl" placeholder="https://ejemplo.com"></div>
-      <div class="field-row"><label>Sats por reclamo</label><input type="number" id="newSats" value="1" min="0"></div>
-      <div class="field-row"><label>Intervalo (segundos)</label><input type="number" id="newInterval" value="86400" min="60"><div class="hint">86400 = 24h · 3600 = 1h · 1800 = 30min</div></div>
-      <div class="field-row"><label>Retiro mínimo (sats) — 0 = inmediato</label><input type="number" id="newMinWithdraw" value="0" min="0"></div>
-      <div class="field-row"><label>Nota / descripción</label><input type="text" id="newNote" placeholder="Ej: PTC, offerwall, etc."></div>
-      <div class="modal-actions">
-        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
-        <button class="btn btn-green" onclick="addSite()">➕ Agregar</button>
-      </div>
-    </div>`;
-  document.getElementById('modalContainer').appendChild(bg);
-  setTimeout(()=>{ const el = document.getElementById('newName'); if(el) el.focus(); }, 100);
-}
-
-function addSite(){
-  const name = document.getElementById('newName').value.trim();
-  if(!name){ alert('El nombre es obligatorio'); return; }
-  let baseId = name.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
-  if(!baseId) baseId = 'custom';
-  let id = baseId;
-  let n = 1;
-  const existingIds = new Set([...SITES.map(s=>s.id), ...(state.customSites||[]).map(s=>s.id)]);
-  while(existingIds.has(id)){ id = baseId + '_' + (++n); }
-  const url = document.getElementById('newUrl').value.trim() || '#';
-  const sats = Math.max(0, parseInt(document.getElementById('newSats').value)||1);
-  const interval = Math.max(60, parseInt(document.getElementById('newInterval').value)||86400);
-  const minWithdraw = Math.max(0, parseInt(document.getElementById('newMinWithdraw').value)||0);
-  const note = document.getElementById('newNote').value.trim() || 'Faucet personalizado';
-  const newSite = {id, name, url, sats, interval, minWithdraw, note, custom:true};
-  if(!state.customSites) state.customSites = [];
-  state.customSites.push(newSite);
-  state.sites[id] = defaultSiteState();
-  if(!state.order) state.order = [];
-  state.order.push(id);
-  saveState();
-  closeModal();
-  renderPanel();
-  toast(`➕ ${name} agregado`, false, true);
-}
-
-/* ============================================================
-   ELIMINAR / RESTAURAR / RADICAL
-   ============================================================ */
-function deleteSite(id){
-  const site = findSite(id);
-  if(!site) return;
-  if(!confirm(`¿Eliminar ${site.name}?\n\nIrá a "Eliminados" y podrás restaurarlo o borrarlo definitivamente.`)) return;
-  if(!state.deletedSites.includes(id)) state.deletedSites.push(id);
-  state.order = (state.order||[]).filter(x=>x!==id);
-  saveState();
-  renderPanel();
-  toast(`🗑️ ${site.name} eliminado`, true);
-}
-
-function restoreSite(id){
-  const site = findSite(id) || getBaseSite(id);
-  state.deletedSites = (state.deletedSites||[]).filter(x=>x!==id);
-  if(!state.order.includes(id)) state.order.push(id);
-  const backup = loadSatsBackup();
-  if(state.sites[id] && backup[id]){
-    if((state.sites[id].satsManual || 0) === 0 && backup[id].satsManual > 0) state.sites[id].satsManual = backup[id].satsManual;
-    if((state.sites[id].metaManual || 0) === 0 && backup[id].metaManual > 0) state.sites[id].metaManual = backup[id].metaManual;
-  }
-  saveState();
-  renderPanel();
-  if(site) toast(`↩ ${site.name} restaurado`, false, true);
-}
-
-function radicalDeleteSite(id){
-  const site = findSite(id) || getBaseSite(id);
-  if(!site) return;
-  if(!confirm(`❌ ELIMINACIÓN DEFINITIVA\n\n¿Borrar "${site.name}" permanentemente?`)) return;
-  if(!state.radicalDeleted.includes(id)) state.radicalDeleted.push(id);
-  state.deletedSites = (state.deletedSites||[]).filter(x=>x!==id);
-  state.order = (state.order||[]).filter(x=>x!==id);
-  saveState();
-  renderPanel();
-  toast(`❌ ${site.name} eliminado definitivamente`, true);
-}
-
-/* ============================================================
-   RETIRO PENDIENTE
-   ============================================================ */
 function toggleWithdraw(id){
   const site = findSite(id);
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
@@ -1818,9 +986,6 @@ function toggleWithdraw(id){
   if(site) toast(st.withdrawPending ? `🟠 ${site.name} marcado` : `⚪ ${site.name} desmarcado`, false, !st.withdrawPending);
 }
 
-/* ============================================================
-   ACCIONES
-   ============================================================ */
 function startNow(id){
   const site = findSite(id);
   if(!site) return;
@@ -1847,16 +1012,12 @@ function claim(id){
   if(!site) return;
   if(!state.sites[id]) state.sites[id] = defaultSiteState();
   const st = state.sites[id];
-  if(st.status==='waiting' && st.nextClaim > Date.now()){ toast(`⛔ No puedes reclamar todavía`, true); return; }
-  if(st.status!=='ready' && st.status!=='idle'){ toast(`⛔ No está listo`, true); return; }
+  if(st.status==='waiting' && st.nextClaim > Date.now()){ toast(`⛔ Aún no`, true); return; }
+  if(st.status!=='ready' && st.status!=='idle'){ toast(`⛔ No listo`, true); return; }
   st.status = 'idle';
   st.accumulated += site.sats;
   st.totalSats += site.sats;
   st.totalClaims++;
-  st.timeSpent += 30;
-  state.totals.sats += site.sats;
-  state.totals.claims++;
-  state.totals.timeSpent += 30;
   st.cycle.missedCount = 0;
   st.cycle.lastMissedAt = 0;
   st.cycle.nextExpectedAt = 0;
@@ -1874,7 +1035,7 @@ function clearTimer(id){
   st.nextClaim = 0;
   saveState();
   updateCard(id);
-  if(site) toast(`🔄 Timer limpiado en ${site.name}`, false, true);
+  if(site) toast(`🔄 Timer limpiado`, false, true);
 }
 
 function clearAllTimers(){
@@ -1891,6 +1052,20 @@ function clearAllTimers(){
   toast('🧹 Timers limpiados', false, true);
 }
 
+function clearAllMetas(){
+  const totalMeta = getTotalMeta();
+  if(totalMeta === 0){ toast('🎯 No hay metas para borrar', false, true); return; }
+  if(!confirm(`🧹 ¿Limpiar TODAS las metas?\n\nSe conservan los sats y apuntes.`)) return;
+  getActiveSites().forEach(s=>{
+    const st = state.sites[s.id];
+    if(st) st.metaManual = 0;
+  });
+  saveState();
+  renderPanel();
+  updateTotalDisplay();
+  toast(`🧹 Metas limpiadas`, false, false, false, false, true);
+}
+
 function resetSite(id){
   const site = findSite(id);
   if(!site) return;
@@ -1900,7 +1075,7 @@ function resetSite(id){
   const metaGuardada = st.metaManual || 0;
   const monedaGuardada = st.currency || 'sats';
   const notasGuardadas = st.notes || '';
-  if(!confirm(`¿Resetear "${site.name}"?\n\nSe borrarán: Timer, Ciclos, Perdidos\nSe conservarán: 💰 Sats (${satsGuardados}), 🎯 Meta (${metaGuardada}), 📝 Apuntes`)) return;
+  if(!confirm(`¿Resetear "${site.name}"?\n\nSe conservarán sats, meta y apuntes.`)) return;
   const fresh = defaultSiteState();
   fresh.satsManual = satsGuardados;
   fresh.metaManual = metaGuardada;
@@ -1910,7 +1085,7 @@ function resetSite(id){
   saveState();
   updateCard(id);
   updateTotalDisplay();
-  toast(`🗑️ ${site.name} reseteado (sats conservados)`, true);
+  toast(`🗑️ ${site.name} reseteado`, true);
 }
 
 function resetMissed(id){
@@ -1930,19 +1105,15 @@ function resetMissed(id){
 function resetAll(){
   const totalSats = getTotalSats();
   const totalMeta = getTotalMeta();
-  const msg = (totalSats > 0 || totalMeta > 0)
-    ? `⚠️ ATENCIÓN: Vas a borrar TODOS los datos.\n\nEsto incluirá:\n· 💰 ${totalSats} sats\n· 🎯 ${totalMeta} meta\n· Apuntes\n· Puntos de control\n\n¿Estás SEGURO?`
-    : `¿Borrar TODOS los datos?`;
-  if(!confirm(msg)) return;
-  if(totalSats > 0){ if(!confirm(`⚠️ ÚLTIMA CONFIRMACIÓN\n\nSe borrarán ${totalSats} sats.\n\n¿Continuar?`)) return; }
+  if(!confirm(`⚠️ ¿Borrar TODOS los datos?\n\n💰 ${totalSats} sats\n🎯 ${totalMeta} meta\n\nSe incluye apuntes y puntos de control.`)) return;
   state = defaultState();
   normalizeStateObject(state);
   saveState();
-  try{ localStorage.removeItem(SATS_BACKUP_KEY); }catch(e){}
-  renderPanel(); renderCheckpoints();
+  renderPanel();
+  renderCheckpoints();
   document.getElementById('generalNotes').value = '';
   updateTotalDisplay();
-  toast('🗑️ Todos los datos reiniciados', true);
+  toast('🗑️ Datos reiniciados', true);
 }
 
 /* ============================================================
@@ -1964,12 +1135,11 @@ function openCycleModal(id, mode){
   bg.innerHTML = `
     <div class="modal" onclick="event.stopPropagation()">
       <h3>${isStart?'▶ Empezar ciclo en':'⏹ Terminar ciclo en'} — ${escapeHtml(site.name)}</h3>
-      <p class="modal-hint">${isStart?'Cuenta atrás para empezar. Si no lo inicias a tiempo, se cuenta como <b>ciclo perdido</b>.':'Cuenta atrás para terminar. Si no lo terminas a tiempo, se cuenta como <b>ciclo perdido</b>.'}</p>
       <div class="cycle-row">
         <span class="cycle-label">Duración:</span>
-        <input type="number" class="cycle-input" id="cycleH" value="${h}" min="0" placeholder="0"><span style="font-weight:700;font-size:12px;color:var(--muted)">h</span>
-        <input type="number" class="cycle-input" id="cycleM" value="${m}" min="0" max="59" placeholder="0"><span style="font-weight:700;font-size:12px;color:var(--muted)">m</span>
-        <input type="number" class="cycle-input" id="cycleS" value="${s}" min="0" max="59" placeholder="0"><span style="font-weight:700;font-size:12px;color:var(--muted)">s</span>
+        <input type="number" class="cycle-input" id="cycleH" value="${h}" min="0"><span style="font-weight:700;font-size:12px">h</span>
+        <input type="number" class="cycle-input" id="cycleM" value="${m}" min="0" max="59"><span style="font-weight:700;font-size:12px">m</span>
+        <input type="number" class="cycle-input" id="cycleS" value="${s}" min="0" max="59"><span style="font-weight:700;font-size:12px">s</span>
       </div>
       <div class="modal-actions">
         <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
@@ -1978,9 +1148,7 @@ function openCycleModal(id, mode){
     </div>`;
   document.getElementById('modalContainer').appendChild(bg);
 }
-
 function closeModal(){ document.getElementById('modalContainer').innerHTML = ''; }
-
 function applyCycle(id, mode){
   const h = parseInt(document.getElementById('cycleH').value)||0;
   const m = parseInt(document.getElementById('cycleM').value)||0;
@@ -1997,7 +1165,6 @@ function applyCycle(id, mode){
   updateCard(id);
   toast(`🔄 Ciclo activado`, false, true);
 }
-
 function cancelCycle(id){
   if(!state.sites[id]) return;
   const st = state.sites[id];
@@ -2009,53 +1176,6 @@ function cancelCycle(id){
   saveState();
   updateCard(id);
   toast(`✖ Ciclo cancelado`);
-}
-
-function completeCycle(id){
-  if(!state.sites[id]) return;
-  const st = state.sites[id];
-  st.cycle.active = false;
-  st.cycle.completed = true;
-  st.cycle.lastCompletedAt = Date.now();
-  saveState();
-  const site = findSite(id);
-  if(!site) return;
-  toast(`🔔 Ciclo ${st.cycle.mode==='start'?'INICIADO':'TERMINADO'}: ${site.name}`, false, true);
-  if(window.Notification && Notification.permission==='granted'){
-    new Notification('Ciclo '+(st.cycle.mode==='start'?'iniciado':'terminado'), {body:site.name});
-  }
-}
-
-function checkMissedCycles(id, now){
-  const site = findSite(id);
-  if(!site) return;
-  if(!state.sites[id]) return;
-  const st = state.sites[id];
-  const c = st.cycle;
-  if(!c) return;
-  if(c.active && c.nextExpectedAt && now >= c.nextExpectedAt){
-    c.missedCount = (c.missedCount||0) + 1;
-    c.lastMissedAt = now;
-    c.nextExpectedAt = now + c.duration*1000;
-    state.totals.missedTotal = (state.totals.missedTotal||0) + 1;
-    saveState();
-    toast(`⚠️ Ciclo PERDIDO #${c.missedCount} en ${site.name}`, true);
-    if(window.Notification && Notification.permission==='granted'){
-      new Notification('⚠️ Ciclo perdido', {body:`${site.name} — total: ${c.missedCount}`});
-    }
-    return;
-  }
-  if(st.status === 'ready' && c.nextExpectedAt && now >= c.nextExpectedAt){
-    c.missedCount = (c.missedCount||0) + 1;
-    c.lastMissedAt = now;
-    c.nextExpectedAt = now + site.interval*1000;
-    state.totals.missedTotal = (state.totals.missedTotal||0) + 1;
-    saveState();
-    toast(`⚠️ Ciclo PERDIDO #${c.missedCount} en ${site.name}`, true);
-    if(window.Notification && Notification.permission==='granted'){
-      new Notification('⚠️ Ciclo perdido', {body:`${site.name} — no reclamaste`});
-    }
-  }
 }
 
 /* ============================================================
@@ -2071,10 +1191,13 @@ function updateCard(id){
   if(!card || !timer) return;
   const now = Date.now();
   const remain = st.nextClaim - now;
-
   if(st.status === 'waiting' && st.nextClaim > 0 && remain <= 0){ st.status = 'ready'; saveState(); }
-  if(st.cycle.active && now >= st.cycle.endAt){ completeCycle(id); }
-  checkMissedCycles(id, now);
+  if(st.cycle.active && now >= st.cycle.endAt){
+    st.cycle.active = false;
+    st.cycle.completed = true;
+    st.cycle.lastCompletedAt = now;
+    saveState();
+  }
 
   const hasMissed = (st.cycle.missedCount||0) > 0;
   const hasWithdraw = st.withdrawPending === true;
@@ -2190,19 +1313,274 @@ function updateCard(id){
   }
 }
 
-/* ============================================================
-   TICK
-   ============================================================ */
 function tick(){
   getActiveSites().forEach(site=> updateCard(site.id));
   updateTotalDisplay();
 }
 
 /* ============================================================
+   NOTAS, EDITAR, AGREGAR, ELIMINAR
+   ============================================================ */
+function saveGeneralNotes(value){ state.generalNotes = value; saveState(); }
+function clearGeneralNotes(){
+  if(!confirm('¿Borrar apuntes generales?')) return;
+  state.generalNotes = '';
+  saveState();
+  document.getElementById('generalNotes').value = '';
+  toast('🗑️ Apuntes borrados', true);
+}
+function openNotesModal(id){
+  const site = findSite(id);
+  if(!site) return;
+  if(!state.sites[id]) state.sites[id] = defaultSiteState();
+  const st = state.sites[id];
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
+  bg.innerHTML = `
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3>📝 Apuntes — ${escapeHtml(site.name)}</h3>
+      <div class="field-row">
+        <label>Apuntes</label>
+        <textarea id="notesTextarea">${escapeHtml(st.notes || '')}</textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-red" onclick="clearNotes('${id}')">🗑️ Borrar</button>
+        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
+        <button class="btn btn-green" onclick="saveNotes('${id}')">💾 Guardar</button>
+      </div>
+    </div>`;
+  document.getElementById('modalContainer').appendChild(bg);
+  setTimeout(()=>{ const el = document.getElementById('notesTextarea'); if(el) el.focus(); }, 100);
+}
+function saveNotes(id){
+  const txt = document.getElementById('notesTextarea').value;
+  if(!state.sites[id]) state.sites[id] = defaultSiteState();
+  state.sites[id].notes = txt;
+  saveState();
+  updateCard(id);
+  closeModal();
+  toast(`📝 Apuntes guardados`, false, true);
+}
+function clearNotes(id){
+  if(!confirm('¿Borrar apuntes?')) return;
+  if(!state.sites[id]) state.sites[id] = defaultSiteState();
+  state.sites[id].notes = '';
+  saveState();
+  updateCard(id);
+  closeModal();
+  toast('🗑️ Apuntes borrados', true);
+}
+function openEditSiteModal(id){
+  const base = getBaseSite(id);
+  const eff = getEffectiveSite(id);
+  if(!base || !eff) return;
+  const h = Math.floor((eff.interval||0)/3600);
+  const m = Math.floor(((eff.interval||0)%3600)/60);
+  const s = (eff.interval||0)%60;
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
+  bg.innerHTML = `
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3>✏️ Editar — ${escapeHtml(base.name)}</h3>
+      <div class="field-row"><label>Nombre</label><input type="text" id="editName" value="${escapeHtml(eff.name)}"></div>
+      <div class="field-row"><label>URL</label><input type="text" id="editUrl" value="${escapeHtml(eff.url)}"></div>
+      <div class="field-row"><label>Sats por reclamo</label><input type="number" id="editSats" value="${eff.sats}" min="0"></div>
+      <div class="field-row"><label>Intervalo</label>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <input type="number" id="editH" value="${h}" min="0" style="width:70px"><span>h</span>
+          <input type="number" id="editM" value="${m}" min="0" max="59" style="width:70px"><span>m</span>
+          <input type="number" id="editS" value="${s}" min="0" max="59" style="width:70px"><span>s</span>
+        </div>
+      </div>
+      <div class="field-row"><label>Retiro mínimo (sats)</label><input type="number" id="editMinWithdraw" value="${eff.minWithdraw}" min="0"></div>
+      <div class="field-row"><label>Nota</label><input type="text" id="editNote" value="${escapeHtml(eff.note || '')}"></div>
+      <div class="modal-actions">
+        <button class="btn btn-red" onclick="resetSiteOverride('${id}')">↺ Revertir</button>
+        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
+        <button class="btn btn-green" onclick="saveEditSite('${id}')">💾 Guardar</button>
+      </div>
+    </div>`;
+  document.getElementById('modalContainer').appendChild(bg);
+}
+function saveEditSite(id){
+  const name = document.getElementById('editName').value.trim();
+  const url = document.getElementById('editUrl').value.trim();
+  const sats = Math.max(0, parseInt(document.getElementById('editSats').value)||0);
+  const h = parseInt(document.getElementById('editH').value)||0;
+  const m = parseInt(document.getElementById('editM').value)||0;
+  const s = parseInt(document.getElementById('editS').value)||0;
+  const interval = h*3600 + m*60 + s;
+  const minWithdraw = Math.max(0, parseInt(document.getElementById('editMinWithdraw').value)||0);
+  const note = document.getElementById('editNote').value.trim();
+  if(!name){ alert('Nombre obligatorio'); return; }
+  if(interval < 60){ alert('Intervalo mínimo 60s'); return; }
+  if(!state.siteOverrides) state.siteOverrides = {};
+  state.siteOverrides[id] = { name, url, sats, interval, minWithdraw, note };
+  saveState();
+  closeModal();
+  renderPanel();
+  toast(`✏️ ${name} actualizado`, false, true);
+}
+function resetSiteOverride(id){
+  if(!confirm('¿Revertir?')) return;
+  if(state.siteOverrides) delete state.siteOverrides[id];
+  saveState();
+  closeModal();
+  renderPanel();
+  toast('↺ Revertido', false, true);
+}
+function openAddSiteModal(){
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.onclick = e=>{ if(e.target===bg) closeModal(); };
+  bg.innerHTML = `
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3>➕ Agregar faucet</h3>
+      <div class="field-row"><label>Nombre *</label><input type="text" id="newName"></div>
+      <div class="field-row"><label>URL</label><input type="text" id="newUrl" placeholder="https://..."></div>
+      <div class="field-row"><label>Sats por reclamo</label><input type="number" id="newSats" value="1" min="0"></div>
+      <div class="field-row"><label>Intervalo (segundos)</label><input type="number" id="newInterval" value="86400" min="60"></div>
+      <div class="field-row"><label>Retiro mínimo (sats)</label><input type="number" id="newMinWithdraw" value="0" min="0"></div>
+      <div class="field-row"><label>Nota</label><input type="text" id="newNote"></div>
+      <div class="modal-actions">
+        <button class="btn btn-gray" onclick="closeModal()">Cancelar</button>
+        <button class="btn btn-green" onclick="addSite()">➕ Agregar</button>
+      </div>
+    </div>`;
+  document.getElementById('modalContainer').appendChild(bg);
+  setTimeout(()=>{ const el = document.getElementById('newName'); if(el) el.focus(); }, 100);
+}
+function addSite(){
+  const name = document.getElementById('newName').value.trim();
+  if(!name){ alert('Nombre obligatorio'); return; }
+  let baseId = name.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'') || 'custom';
+  let id = baseId;
+  let n = 1;
+  const existingIds = new Set([...SITES.map(s=>s.id), ...(state.customSites||[]).map(s=>s.id)]);
+  while(existingIds.has(id)){ id = baseId + '_' + (++n); }
+  const url = document.getElementById('newUrl').value.trim() || '#';
+  const sats = Math.max(0, parseInt(document.getElementById('newSats').value)||1);
+  const interval = Math.max(60, parseInt(document.getElementById('newInterval').value)||86400);
+  const minWithdraw = Math.max(0, parseInt(document.getElementById('newMinWithdraw').value)||0);
+  const note = document.getElementById('newNote').value.trim() || 'Faucet personalizado';
+  const newSite = {id, name, url, sats, interval, minWithdraw, note, custom:true};
+  if(!state.customSites) state.customSites = [];
+  state.customSites.push(newSite);
+  state.sites[id] = defaultSiteState();
+  if(!state.order) state.order = [];
+  state.order.push(id);
+  saveState();
+  closeModal();
+  renderPanel();
+  toast(`➕ ${name} agregado`, false, true);
+}
+function deleteSite(id){
+  const site = findSite(id);
+  if(!site) return;
+  if(!confirm(`¿Eliminar ${site.name}?`)) return;
+  if(!state.deletedSites.includes(id)) state.deletedSites.push(id);
+  state.order = (state.order||[]).filter(x=>x!==id);
+  saveState();
+  renderPanel();
+  toast(`🗑️ ${site.name} eliminado`, true);
+}
+function restoreSite(id){
+  const site = findSite(id) || getBaseSite(id);
+  state.deletedSites = (state.deletedSites||[]).filter(x=>x!==id);
+  if(!state.order.includes(id)) state.order.push(id);
+  saveState();
+  renderPanel();
+  if(site) toast(`↩ ${site.name} restaurado`, false, true);
+}
+function radicalDeleteSite(id){
+  const site = findSite(id) || getBaseSite(id);
+  if(!site) return;
+  if(!confirm(`❌ ¿Borrar "${site.name}" definitivamente?`)) return;
+  if(!state.radicalDeleted.includes(id)) state.radicalDeleted.push(id);
+  state.deletedSites = (state.deletedSites||[]).filter(x=>x!==id);
+  state.order = (state.order||[]).filter(x=>x!==id);
+  saveState();
+  renderPanel();
+  toast(`❌ ${site.name} eliminado definitivo`, true);
+}
+
+/* ============================================================
+   CHECKPOINTS
+   ============================================================ */
+function saveCheckpoint(){
+  const activeSites = getActiveSites();
+  const satsSnapshot = {};
+  const metaSnapshot = {};
+  let total = 0, totalMeta = 0;
+  activeSites.forEach(s=>{
+    const st = state.sites[s.id];
+    const v = (st && st.satsManual) || 0;
+    const mv = (st && st.metaManual) || 0;
+    satsSnapshot[s.id] = v;
+    metaSnapshot[s.id] = mv;
+    total += v;
+    totalMeta += mv;
+  });
+  const cp = { id: 'cp_' + Date.now(), timestamp: Date.now(), total, totalMeta, sats: satsSnapshot, metas: metaSnapshot };
+  if(!state.checkpoints) state.checkpoints = [];
+  state.checkpoints.push(cp);
+  saveState();
+  updateTotalDisplay();
+  renderCheckpoints();
+  toast(`📌 Punto: ${total} sats · ${totalMeta} meta`, false, true);
+}
+function renderCheckpoints(){
+  const cont = document.getElementById('checkpointsContent');
+  if(!cont) return;
+  const cps = [...(state.checkpoints||[])].sort((a,b)=>b.timestamp - a.timestamp);
+  let html = `<h2>📌 Puntos de control</h2>
+  <div class="toolbar">
+    <button class="btn btn-gold" onclick="saveCheckpoint()">📌 Guardar ahora</button>
+    <button class="btn btn-red" onclick="clearAllCheckpoints()">🗑️ Borrar TODOS</button>
+  </div>
+  <p style="font-size:11px;color:var(--muted)">Total: <b>${cps.length}</b></p>`;
+  if(cps.length === 0){
+    html += `<p style="color:var(--muted);font-style:italic">No hay puntos todavía.</p>`;
+    cont.innerHTML = html;
+    return;
+  }
+  cps.forEach((cp, idx)=>{
+    const prev = cps[idx+1];
+    const diff = prev ? (cp.total - prev.total) : 0;
+    const diffTxt = prev ? (diff >= 0 ? `<span class="good">+${diff}</span>` : `<span class="bad">${diff}</span>`) : '—';
+    html += `<div class="checkpoint">
+      <div class="cp-info">
+        <div class="cp-date">📅 ${fmtDate(cp.timestamp)}</div>
+        <div class="cp-total">${cp.total.toLocaleString()} sats <span style="font-size:11px;color:var(--muted)">(dif: ${diffTxt})</span></div>
+        ${cp.totalMeta !== undefined ? `<div class="cp-meta">🎯 ${cp.totalMeta.toLocaleString()} meta</div>` : ''}
+      </div>
+      <div><button class="btn btn-xs btn-red" onclick="deleteCheckpoint('${cp.id}')">🗑️</button></div>
+    </div>`;
+  });
+  cont.innerHTML = html;
+}
+function deleteCheckpoint(id){
+  if(!confirm('¿Borrar punto?')) return;
+  state.checkpoints = (state.checkpoints||[]).filter(c=>c.id!==id);
+  saveState();
+  renderCheckpoints();
+  toast('🗑️ Borrado', true);
+}
+function clearAllCheckpoints(){
+  if(!confirm(`¿Borrar TODOS (${(state.checkpoints||[]).length})?`)) return;
+  state.checkpoints = [];
+  saveState();
+  renderCheckpoints();
+  toast('🗑️ Todos borrados', true);
+}
+
+/* ============================================================
    JSON
    ============================================================ */
 function exportJSON(){
-  const data = {version:23, exportedAt:new Date().toISOString(), state:state};
+  const data = {version:1, exportedAt:new Date().toISOString(), state};
   const blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -2212,7 +1590,6 @@ function exportJSON(){
   URL.revokeObjectURL(url);
   toast('💾 JSON descargado', false, true);
 }
-
 function importJSON(ev){
   const file = ev.target.files[0];
   if(!file) return;
@@ -2225,7 +1602,8 @@ function importJSON(ev){
       state = mergeState(incoming);
       normalizeStateObject(state);
       saveState();
-      renderPanel(); renderCheckpoints();
+      renderPanel();
+      renderCheckpoints();
       document.getElementById('generalNotes').value = state.generalNotes || '';
       updateTotalDisplay();
       toast('📂 JSON cargado', false, true);
@@ -2270,27 +1648,13 @@ document.querySelectorAll('.tab').forEach(t=>{
 /* ============================================================
    INIT
    ============================================================ */
-if(window.Notification && Notification.permission==='default'){ Notification.requestPermission(); }
-
-window.addEventListener('online', ()=>{ isOnline = true; setSyncStatus('syncing', '☁️ Reconectado...'); saveStateToGist(); refreshPrices(true); });
-window.addEventListener('offline', ()=>{ isOnline = false; setSyncStatus('error', '📴 Sin conexión'); });
-
 loadPricesFromCache();
-
 (async function init(){
-  try{
-    await loadStateFromGist();
-    normalizeStateObject(state);
-    setInterval(tick, 1000);
-    setInterval(()=>{
-      try{ if(!document.getElementById('tab-checkpoints').classList.contains('hidden')) renderCheckpoints(); }
-      catch(e){ addError('Interval checkpoints: ' + e.message, '', 0, 0, e.stack || ''); }
-    }, 5000);
-    setInterval(()=>{ if(syncTimer){ clearTimeout(syncTimer); syncTimer = null; saveStateToGist(); } }, 30000);
-    setInterval(()=>refreshPrices(false), PRICES_REFRESH_MS);
-  }catch(err){
-    addError('init: ' + err.message, '', 0, 0, err.stack || '');
-  }
+  await loadStateFromGist();
+  normalizeStateObject(state);
+  setInterval(tick, 1000);
+  setInterval(()=>{ if(!document.getElementById('tab-checkpoints').classList.contains('hidden')) renderCheckpoints(); }, 5000);
+  setInterval(()=>refreshPrices(false), PRICES_REFRESH_MS);
 })();
 </script>
 </body>
