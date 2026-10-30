@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Crypto Cruzada</title>
+<style>
+  :root{
+    --bg:#0b1120; --card:#111c33; --border:#1e2d4a; --text:#e2e8f0;
+    --muted:#7c8db5; --accent:#38bdf8; --green:#4ade80; --yellow:#facc15;
+  }
+  *{box-sizing:border-box}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);max-width:1100px;margin:1.5rem auto;padding:0 1rem}
+  h1{font-size:1.6rem;margin-bottom:.25rem}
+  .sub{color:var(--muted);font-size:.85rem;margin-bottom:1.25rem}
+  .toolbar{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+  .toolbar button{padding:.5rem .8rem;border-radius:.5rem;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.85rem;cursor:pointer}
+  .toolbar button:hover{background:#1a2a4a}
+  #status{font-size:.8rem;color:var(--yellow);min-height:1.2rem;margin-bottom:.5rem}
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  th{text-align:left;color:var(--muted);font-weight:500;padding:.5rem .4rem;border-bottom:1px solid var(--border);font-size:.72rem;text-transform:uppercase;letter-spacing:.03em}
+  th.sortable{cursor:pointer;user-select:none;white-space:nowrap}
+  th.sortable:hover{color:var(--accent)}
+  th .arrow{font-size:.7rem;margin-left:.2rem;color:var(--accent)}
+  td{padding:.45rem .4rem;border-bottom:1px solid #16233d;vertical-align:middle}
+  tr:hover td{background:#0f1a30}
+  .coin{display:flex;align-items:center;gap:.5rem;font-weight:500}
+  .sym{color:var(--muted);font-size:.72rem}
+  input.cell{width:170px;padding:.35rem .5rem;border-radius:.375rem;border:1px solid var(--border);background:#0b1120;color:var(--text);font-size:.85rem;text-align:right;font-variant-numeric:tabular-nums}
+  input.cell:focus{outline:2px solid var(--accent);border-color:transparent}
+  tr.active td{background:#13284a}
+  tr.active input.cell{background:#0e1f3d;border-color:var(--accent)}
+  .price{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .usd{color:var(--green);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;text-align:right}
+  .total-box{margin-top:1.5rem;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .total-box .label{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+  #total{font-size:2rem;font-weight:700;color:var(--green)}
+  #totalBtc{font-size:.95rem;color:var(--accent);text-align:right}
+  .novel{background:#1a2a4a;border:1px solid #2d4a7a;border-radius:.75rem;padding:1rem;margin-top:1rem}
+  .novel h3{margin:0 0 .5rem;font-size:.95rem;color:var(--accent)}
+  .novel p{margin:.2rem 0;font-size:.8rem;color:var(--muted)}
+  @media(max-width:760px){.hide-mobile{display:none}}
+</style>
+</head>
+<body>
+
+<h1>🧮 Calculadora Crypto Cruzada</h1>
+<p class="sub">Escribe una cantidad en <b>cualquier</b> fila → total en USD y equivalencia en todas las demás (8 decimales). BTC arranca en 0.00000001.</p>
+
+<div class="toolbar">
+  <button id="btnRefresh">🔄 Actualizar precios</button>
+  <button id="btnClear">🗑️ Limpiar</button>
+</div>
+
+<div id="status">Cargando precios...</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="sortable" data-key="name">Moneda <span class="arrow" id="ar-name"></span></th>
+      <th class="sortable" data-key="qty" style="text-align:right">Cantidad (8 dec) <span class="arrow" id="ar-qty"></span></th>
+      <th class="sortable" data-key="usd" style="text-align:right">Valor USD <span class="arrow" id="ar-usd"></span></th>
+      <th class="sortable" data-key="price" style="text-align:right">Precio USD <span class="arrow" id="ar-price"></span></th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<div class="total-box">
+  <div>
+    <div class="label">Valor total</div>
+    <div id="total">$0.00</div>
+  </div>
+  <div id="totalBtc">≈ 0.00000000 BTC</div>
+</div>
+
+<div class="novel">
+  <h3>💡 Cómo funciona</h3>
+  <p>Escribe en <b>Cantidad</b> de cualquier fila. Esa fila es la fuente; el total USD se calcula con ella y <b>todas las demás</b> muestran su equivalencia en sus unidades (8 dec).</p>
+  <p>Haz clic en <b>cualquier encabezado</b> para ordenar asc/desc según esa columna. BTC arranca en 0.00000001 como fuente inicial.</p>
+</div>
+
+<script>
+const COINS = [
+  {symbol:'LTC',  id:'litecoin',               name:'Litecoin'},
+  {symbol:'USDT', id:'tether',                 name:'Tether'},
+  {symbol:'BTC',  id:'bitcoin',                name:'Bitcoin'},
+  {symbol:'TRX',  id:'tron',                   name:'TRON'},
+  {symbol:'DOGE', id:'dogecoin',               name:'Dogecoin'},
+  {symbol:'SOL',  id:'solana',                 name:'Solana'},
+  {symbol:'ZEC',  id:'zcash',                  name:'Zcash'},
+  {symbol:'PEPE', id:'pepe',                   name:'Pepe'},
+  {symbol:'DGB',  id:'digibyte',               name:'DigiByte'},
+  {symbol:'ADA',  id:'cardano',                name:'Cardano'},
+  {symbol:'USDC', id:'usd-coin',               name:'USD Coin'},
+  {symbol:'BNB',  id:'binancecoin',            name:'Binance Coin'},
+  {symbol:'BCH',  id:'bitcoin-cash',           name:'Bitcoin Cash'},
+  {symbol:'DASH', id:'dash',                   name:'Dash'},
+  {symbol:'ETH',  id:'ethereum',               name:'Ethereum'},
+  {symbol:'XMR',  id:'monero',                 name:'Monero'},
+  {symbol:'TRUMP',id:'official-trump',         name:'Official Trump'},
+  {symbol:'POL',  id:'polygon-ecosystem-token',name:'Polygon (POL)'},
+  {symbol:'XRP',  id:'ripple',                 name:'Ripple'},
+  {symbol:'XLM',  id:'stellar',                name:'Stellar'},
+  {symbol:'TON',  id:'the-open-network',       name:'Toncoin'},
+];
+const API = 'https://api.coingecko.com/api/v3/simple/price';
+const STORAGE_KEY = 'crypto_cross_v6';
+const DEC = 8;
+const BTC_START = 0.00000001;
+
+let prices = {};
+let lastFetch = 0;
+let activeSymbol = 'BTC';
+let activeQty = BTC_START;
+let sort = { key: null, dir: null };
+
+const fmtUSD = n => n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtQty8 = n => (!isFinite(n) ? '0.00000000' : n.toFixed(DEC));
+const fmtPrice = p => {
+  if (p === undefined) return '—';
+  if (p < 0.0001) return '$' + p.toExponential(4);
+  if (p < 1) return '$' + p.toFixed(8);
+  return '$' + fmtUSD(p);
+};
+const parseNum = s => {
+  const n = parseFloat(String(s).replace(',', '.'));
+  return isNaN(n) ? 0 : n;
+};
+const coinBySym = s => COINS.find(c => c.symbol === s);
+const priceOf = s => { const c = coinBySym(s); return c ? (prices[c.id] || 0) : 0; };
+
+// ---------- DOM ----------
+const tbody = document.getElementById('tbody');
+COINS.forEach(c => {
+  const tr = document.createElement('tr');
+  tr.dataset.symbol = c.symbol;
+  tr.innerHTML = `
+    <td><div class="coin"><span>${c.name}</span><span class="sym">${c.symbol}</span></div></td>
+    <td style="text-align:right">
+      <input class="cell" id="q-${c.symbol}" inputmode="decimal" autocomplete="off" placeholder="0.00000000">
+    </td>
+    <td class="usd" id="u-${c.symbol}">$0.00</td>
+    <td class="price" id="p-${c.symbol}">—</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+// ---------- PERSISTENCIA ----------
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ activeSymbol, activeQty }));
+}
+function loadState(){
+  try{
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    if (s.activeSymbol && coinBySym(s.activeSymbol)){
+      activeSymbol = s.activeSymbol;
+      activeQty = typeof s.activeQty === 'number' ? s.activeQty : 0;
+    } else {
+      activeSymbol = 'BTC'; activeQty = BTC_START;
+    }
+  }catch(e){
+    activeSymbol = 'BTC'; activeQty = BTC_START;
+  }
+}
+
+// ---------- TOTAL USD (siempre calculado) ----------
+function totalUSD(){
+  return activeQty * priceOf(activeSymbol);
+}
+
+// ---------- RENDER DETERMINISTA ----------
+// Para CADA fila:
+//   qty = (si es activa) activeQty ; (si no) totalUSD / suPrecio  (o 0 si precio=0)
+//   usd = qty * suPrecio
+//   price = precio de mercado
+// Se escriben SIEMPRE las 3 columnas, sin condiciones para USD y Precio.
+// Solo el input de cantidad respeta el foco para no interrumpir al usuario.
+function render(){
+  const btcPrice = priceOf('BTC');
+  const total = totalUSD();
+
+  COINS.forEach(c => {
+    const p = priceOf(c.symbol);
+    const isActive = (c.symbol === activeSymbol);
+    const tr = document.querySelector(`tr[data-symbol="${c.symbol}"]`);
+    const qEl = document.getElementById('q-'+c.symbol);
+
+    // Cantidad a mostrar
+    let qty;
+    if (isActive) qty = activeQty;
+    else qty = p > 0 ? total / p : 0;
+
+    // Valor USD de esta fila
+    const usd = qty * p;
+
+    // 1) Input cantidad (respetar foco)
+    if (document.activeElement !== qEl){
+      qEl.value = fmtQty8(qty);
+    }
+
+    // 2) Valor USD — SIEMPRE se escribe, sin condición
+    document.getElementById('u-'+c.symbol).textContent = '$' + fmtUSD(usd);
+
+    // 3) Precio USD — SIEMPRE se escribe
+    document.getElementById('p-'+c.symbol).textContent = fmtPrice(prices[c.id]);
+
+    // 4) Resaltar
+    tr.classList.toggle('active', isActive);
+  });
+
+  document.getElementById('total').textContent = '$' + fmtUSD(total);
+  document.getElementById('totalBtc').textContent = btcPrice > 0
+    ? `≈ ${fmtQty8(total/btcPrice)} BTC`
+    : '—';
+}
+
+// ---------- PRECIOS ----------
+async function fetchPrices(force=false){
+  if (!force && Date.now() - lastFetch < 15000) return;
+  const status = document.getElementById('status');
+  status.textContent = 'Actualizando precios...';
+  try{
+    const ids = COINS.map(c=>c.id).join(',');
+    const r = await fetch(`${API}?ids=${ids}&vs_currencies=usd`);
+    if (!r.ok) throw new Error(r.status === 429 ? 'Límite de CoinGecko. Espera 1 min.' : 'HTTP '+r.status);
+    const data = await r.json();
+    let ok = 0;
+    COINS.forEach(c => {
+      const p = data[c.id]?.usd;
+      if (p !== undefined){ prices[c.id] = p; ok++; }
+    });
+    lastFetch = Date.now();
+    status.textContent = `✅ ${ok}/${COINS.length} precios · ${new Date().toLocaleTimeString()}`;
+    if (sort.key) applySort();
+    render();   // <-- clave: repintar TODO con los precios ya cargados
+  }catch(err){
+    status.textContent = `⚠️ ${err.message}`;
+    render();
+  }
+}
+
+// ---------- ORDEN ----------
+function getSortValue(symbol, key){
+  const coin = coinBySym(symbol);
+  if (key === 'name') return coin.name.toLowerCase();
+  if (key === 'price') return priceOf(symbol);
+  const total = totalUSD();
+  const p = priceOf(symbol);
+  const qty = (symbol === activeSymbol) ? activeQty : (p > 0 ? total / p : 0);
+  if (key === 'qty') return qty;
+  if (key === 'usd') return qty * p;
+  return 0;
+}
+function applySort(){
+  if (!sort.key || !sort.dir) return;
+  const rows = [...tbody.querySelectorAll('tr')];
+  rows.sort((a,b) => {
+    const va = getSortValue(a.dataset.symbol, sort.key);
+    const vb = getSortValue(b.dataset.symbol, sort.key);
+    let cmp = (typeof va === 'string') ? va.localeCompare(vb) : va - vb;
+    return sort.dir === 'asc' ? cmp : -cmp;
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.key;
+    if (sort.key !== key) sort = { key, dir: 'desc' };
+    else if (sort.dir === 'desc') sort.dir = 'asc';
+    else if (sort.dir === 'asc') sort = { key: null, dir: null };
+    else sort = { key, dir: 'desc' };
+
+    ['name','qty','usd','price'].forEach(k => {
+      const el = document.getElementById('ar-'+k);
+      if (el) el.textContent = (sort.key === k)
+        ? (sort.dir === 'asc' ? '▲' : sort.dir === 'desc' ? '▼' : '')
+        : '';
+    });
+
+    if (sort.key) applySort();
+    else COINS.forEach(c => tbody.appendChild(document.querySelector(`tr[data-symbol="${c.symbol}"]`)));
+    render();
+  });
+});
+
+// ---------- EDICIÓN ----------
+COINS.forEach(c => {
+  const qEl = document.getElementById('q-'+c.symbol);
+
+  qEl.addEventListener('focus', () => {
+    activeSymbol = c.symbol;
+    render();
+  });
+
+  qEl.addEventListener('input', () => {
+    activeSymbol = c.symbol;
+    activeQty = Math.max(0, parseNum(qEl.value));
+    render();       // actualiza Cantidad, Valor USD y Precio USD en TODAS las filas
+    saveState();
+  });
+
+  qEl.addEventListener('blur', () => {
+    if (activeSymbol === c.symbol) qEl.value = fmtQty8(activeQty);
+    else {
+      const total = totalUSD();
+      const p = priceOf(c.symbol);
+      qEl.value = fmtQty8(p > 0 ? total / p : 0);
+    }
+    render();
+  });
+});
+
+// ---------- BOTONES ----------
+document.getElementById('btnRefresh').addEventListener('click', () => fetchPrices(true));
+document.getElementById('btnClear').addEventListener('click', () => {
+  activeSymbol = 'BTC';
+  activeQty = BTC_START;
+  localStorage.removeItem(STORAGE_KEY);
+  render();
+});
+
+// ---------- INIT ----------
+loadState();
+render();            // primer render con precios vacíos: USD = $0.00, Precio = —
+fetchPrices();       // al llegar precios, fetchPrices llama a render() de nuevo
+setInterval(() => fetchPrices(), 60000);
+</script>
+</body>
+</html>
